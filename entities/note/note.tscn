@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dknlgs0l1sqaa"]
 
-[ext_resource type="Script" path="res://scenes/note/note.gd" id="1_vceue"]
-[ext_resource type="Shader" path="res://scenes/note/note.gdshader" id="2_2s4q3"]
-[ext_resource type="ArrayMesh" uid="uid://x8qipyt35qcy" path="res://scenes/note/note.obj" id="3_16npl"]
+[ext_resource type="Script" path="res://entities/note/note.gd" id="1_vceue"]
+[ext_resource type="Shader" path="res://entities/note/note.gdshader" id="2_2s4q3"]
+[ext_resource type="ArrayMesh" uid="uid://x8qipyt35qcy" path="res://entities/note/note.obj" id="3_16npl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k7268"]
 render_priority = 0

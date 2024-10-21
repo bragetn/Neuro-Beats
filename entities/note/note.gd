@@ -1,4 +1,5 @@
 extends Node3D
+class_name Note
 
 @onready var good_hit_body: StaticBody3D = $GoodHitBody
 @onready var bad_hit_body: StaticBody3D = $BadHitBody
