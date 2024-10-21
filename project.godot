@@ -32,5 +32,9 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 [xr]
 
 openxr/enabled=true
+openxr/environment_blend_mode=1
 openxr/startup_alert=false
+openxr/extensions/hand_tracking=false
 shaders/enabled=true
+openxr/name="Neurobeats"
+openxr/subwindows/embed_subwindows=false
