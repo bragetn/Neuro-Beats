@@ -1,24 +1,26 @@
 extends Node3D
 class_name Note
 
+const GameParam = Radio.GameParam
+
 @onready var good_hit_body: StaticBody3D = $GoodHitBody
 @onready var bad_hit_body: StaticBody3D = $BadHitBody
 @onready var note_mesh: MeshInstance3D = $NoteMesh
 
 var is_active: bool = false
-var speed : float = 0
+var velocity : float = 0
 
 
-func start(color, cut_direction, note_speed) -> void:
+func setup(color, cut_direction, note_velocity) -> void:
 	is_active = true
 	update_color(color)
 	update_cut_direction(cut_direction)
-	speed = note_speed
+	velocity = note_velocity
 
 
 func _physics_process(delta: float) -> void:
 	if is_active:
-		position.z += speed * delta
+		position.z += velocity * delta
 
 
 func slice(good: bool) -> void:
