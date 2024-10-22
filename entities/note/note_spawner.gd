@@ -1,17 +1,27 @@
 extends Node
 class_name NoteSpawner
 
+const GameParam = Radio.GameParam
+
 @export var note_groups: Array[NoteGroup] = []
 
 var note_scene: PackedScene = preload("res://entities/note/note.tscn")
 
 var weighted_sum: int = 0
 
-var spawn_distance: float = 10
+var song_speed: float = 1
 var note_speed: float = 1
+var spawn_distance: float = 10
+
+var note_velocity: float = 1
 
 
-func start() -> void:
+func setup(game_params: Dictionary) -> void:
+	song_speed = game_params[GameParam.SONG_SPEED]
+	note_speed = game_params[GameParam.NOTE_SPEED]
+	spawn_distance = game_params[GameParam.SPAWN_DISTANCE]
+	note_velocity = ((spawn_distance - 1.5) / ((60.0 / 104.0) * (2**(6 - note_speed)))) * song_speed
+	
 	weighted_sum = 0
 	for note_group in note_groups:
 		weighted_sum += note_group.weight
@@ -27,7 +37,7 @@ func instantiate_note(note_data) -> void:
 	var note: Note = note_scene.instantiate()
 	add_child(note)
 	note.position = get_note_position(note_data.line_index, note_data.line_layer)
-	note.start(note_data.color, note_data.cut_direction, note_speed)
+	note.setup(note_data.color, note_data.cut_direction, note_velocity)
 
 
 func get_random_note_group() -> NoteGroup:
