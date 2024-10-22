@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7sa7y7rwhki0"]
+[gd_scene load_steps=3 format=3 uid="uid://b7sa7y7rwhki0"]
 
 [ext_resource type="Script" path="res://scenes/admin/admin.gd" id="1_b8vqp"]
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admintheme.tres" id="3_l31sn"]
 
 [node name="Admin" type="Control"]
 layout_mode = 3
@@ -9,4 +10,69 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_l31sn")
 script = ExtResource("1_b8vqp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 46
+theme_override_constants/margin_top = 46
+theme_override_constants/margin_right = 46
+theme_override_constants/margin_bottom = 46
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 36
+
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="song_speed_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerLeft"]
+layout_mode = 2
+text = "Song speed
+"
+
+[node name="song_speed_slider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerLeft"]
+layout_mode = 2
+
+[node name="note_speed_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerLeft"]
+layout_mode = 2
+text = "Note speed
+"
+
+[node name="note_speed_slider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerLeft"]
+layout_mode = 2
+
+[node name="VBoxContainerRight" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="beat_tempo_ label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerRight"]
+layout_mode = 2
+text = "Beat tempo
+"
+
+[node name="beat_tempo_slider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerRight"]
+layout_mode = 2
+
+[node name="note_distance_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerRight"]
+layout_mode = 2
+text = "Note distance
+"
+
+[node name="note_distance_slider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerRight"]
+layout_mode = 2
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.173648, -0.17101, 0.969846, 0, 0.984808, 0.173648, -0.984808, 0.0301537, -0.17101, 4.54718, 1.86541, -3.2014)
+fov = 92.0895
