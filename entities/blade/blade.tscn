@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://co1oaecy2ob42"]
+
+[ext_resource type="Script" path="res://entities/blade/blade.gd" id="1_4asie"]
+
+[node name="Blade" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00166118, -0.00482363, 0.00121522)
+script = ExtResource("1_4asie")
