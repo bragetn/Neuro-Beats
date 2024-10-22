@@ -25,6 +25,8 @@ func setup(game_params: Dictionary) -> void:
 	weighted_sum = 0
 	for note_group in note_groups:
 		weighted_sum += note_group.weight
+	
+	spawn()
 
 
 func spawn() -> void:

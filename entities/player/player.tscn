@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3wtmxh8rq4v6"]
+[gd_scene load_steps=6 format=3 uid="uid://b3wtmxh8rq4v6"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="1_kb4se"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="2_wjobm"]
+[ext_resource type="PackedScene" uid="uid://bwqn80prihy0j" path="res://entities/blade/saber.glb" id="3_6kjl0"]
 
 [sub_resource type="Resource" id="Resource_epmv4"]
 script = ExtResource("2_wjobm")
@@ -31,6 +32,9 @@ script = ExtResource("1_kb4se")
 event = SubResource("Resource_epmv4")
 target = NodePath("..")
 
+[node name="saber" parent="LeftHand" instance=ExtResource("3_6kjl0")]
+transform = Transform3D(0.25, 0, 0, 0, 0.216506, -0.125, 0, 0.125, 0.216506, 0, 0.0163877, 0.0480034)
+
 [node name="RightHand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
@@ -39,3 +43,6 @@ tracker = &"right_hand"
 script = ExtResource("1_kb4se")
 event = SubResource("Resource_812dx")
 target = NodePath("..")
+
+[node name="saber" parent="RightHand" instance=ExtResource("3_6kjl0")]
+transform = Transform3D(0.25, 0, 0, 0, 0.216507, -0.125, 0, 0.125, 0.216507, 0, 0.016, 0.048)
