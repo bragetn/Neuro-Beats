@@ -20,12 +20,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 46
-theme_override_constants/margin_top = 46
-theme_override_constants/margin_right = 46
-theme_override_constants/margin_bottom = 46
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Go To Controll"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -45,48 +56,67 @@ text = "Start"
 layout_mode = 2
 theme_override_constants/separation = 36
 
-[node name="VBoxContainerLeft" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LeftBGColor" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="song_speed_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerLeft"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftBGColor"]
+layout_mode = 2
+color = Color(0.211765, 0.403922, 0.541176, 0.290196)
+
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftBGColor"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="song_speed_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftBGColor/VBoxContainerLeft"]
 layout_mode = 2
 text = "Song speed
 "
 
-[node name="song_speed_slider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerLeft"]
+[node name="song_speed_slider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftBGColor/VBoxContainerLeft"]
 layout_mode = 2
 
-[node name="note_speed_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerLeft"]
+[node name="note_speed_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftBGColor/VBoxContainerLeft"]
 layout_mode = 2
 text = "Note speed
 "
 
-[node name="note_speed_slider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerLeft"]
+[node name="note_speed_slider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftBGColor/VBoxContainerLeft"]
 layout_mode = 2
 
-[node name="VBoxContainerRight" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LeftBGColor2" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="beat_tempo_ label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerRight"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftBGColor2"]
+layout_mode = 2
+color = Color(0.211765, 0.403922, 0.541176, 0.290196)
+
+[node name="VBoxContainerRight" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftBGColor2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="beat_tempo_ label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftBGColor2/VBoxContainerRight"]
 layout_mode = 2
 text = "Beat tempo
 "
 
-[node name="beat_tempo_slider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerRight"]
+[node name="beat_tempo_slider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftBGColor2/VBoxContainerRight"]
 layout_mode = 2
 
-[node name="note_distance_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerRight"]
+[node name="note_distance_label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftBGColor2/VBoxContainerRight"]
 layout_mode = 2
 text = "Note distance
 "
 
-[node name="note_distance_slider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainerRight"]
+[node name="note_distance_slider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer/LeftBGColor2/VBoxContainerRight"]
 layout_mode = 2
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 3, 5)
 fov = 50.0
 
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Button" to="." method="_go_to_controll"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
