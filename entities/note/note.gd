@@ -1,6 +1,7 @@
 extends Node3D
 class_name Note
 
+const HitType = Radio.HitType
 const GameParam = Radio.GameParam
 
 @onready var good_hit_body: StaticBody3D = $GoodHitBody
@@ -9,11 +10,13 @@ const GameParam = Radio.GameParam
 
 var is_active: bool = false
 var velocity : float = 0
+var hit_type
 
 
-func setup(color, cut_direction, note_velocity) -> void:
+func setup(hit_typee, cut_direction, note_velocity) -> void:
+	hit_type = hit_typee
 	is_active = true
-	update_color(color)
+	update_hit_type(hit_type)
 	update_cut_direction(cut_direction)
 	velocity = note_velocity
 
@@ -28,22 +31,28 @@ func slice(good: bool) -> void:
 	good_hit_body.collision_layer = 0
 	bad_hit_body.collision_layer = 0
 	visible = false
+	
+	if good:
+		print("Good slice")
+	else:
+		print("Bad slice")
+	
 	queue_free()
 
 
-func update_color(color) -> void:
-	var color_value: Color
+func update_hit_type(hit_type) -> void:
+	var color: Color
 	
-	if color == 0:
+	if hit_type == HitType.LEFT:
 		good_hit_body.collision_layer = 4
 		bad_hit_body.collision_layer = 8
-		color_value = Color(1, 0, 0)
+		color = Color(1, 0, 0)
 	else:
 		good_hit_body.collision_layer = 8
 		bad_hit_body.collision_layer = 4
-		color_value = Color(0, 0, 1)
+		color = Color(0, 0, 1)
 	
-	note_mesh.set_instance_shader_parameter("color", color_value) 
+	note_mesh.set_instance_shader_parameter("color", color) 
 	note_mesh.set_instance_shader_parameter("plane_normal", Vector3(0, 1, 0))
 	note_mesh.set_instance_shader_parameter("plane_position", Vector3(0, -999, 0))
 

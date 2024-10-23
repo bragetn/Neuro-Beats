@@ -39,7 +39,7 @@ func instantiate_note(note_data) -> void:
 	var note: Note = note_scene.instantiate()
 	add_child(note)
 	note.position = get_note_position(note_data.line_index, note_data.line_layer)
-	note.setup(note_data.color, note_data.cut_direction, note_velocity)
+	note.setup(note_data.hit_type, note_data.cut_direction, note_velocity)
 
 
 func get_random_note_group() -> NoteGroup:
