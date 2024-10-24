@@ -3,7 +3,7 @@ class_name Game
 
 const GameParam = Radio.GameParam
 var game_params: Dictionary = {
-	GameParam.BPM: 104,
+	GameParam.BPM: 110,
 	GameParam.SONG_SPEED: 1,
 	GameParam.BEAT_TEMPO: 1,
 	GameParam.NOTE_SPEED: 4,

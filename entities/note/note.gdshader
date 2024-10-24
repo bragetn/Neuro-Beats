@@ -1,6 +1,7 @@
 shader_type spatial;
 render_mode cull_disabled, depth_prepass_alpha;
 
+instance uniform bool dot_note = false;
 instance uniform vec3 color = vec3(1.0, 0.0, 0.0);
 instance uniform vec3 plane_normal = vec3(0.0, 1.0, 0.0);
 instance uniform vec3 plane_position = vec3(0.0, -999.0, 0.0);
@@ -12,14 +13,35 @@ float point_to_plane_distance(vec3 point) {
 	return (plane_normal.x * (point.x - plane_position.x) + plane_normal.y * (point.y - plane_position.y) + plane_normal.z * (point.z - plane_position.z));
 }
 
-vec3 circle(vec2 center, float radius) {
-	float d = length(center - local_position.xy) - radius;
-	if (d <= radius) {
+vec3 circle() {
+	float d = length(local_position.xy) - 0.025;
+	if (d <= 0.025) {
 		return vec3(1.0);
 	}
 	else {
 		return color;
 	}
+}
+
+vec3 triangle() {
+	float w = 0.13;
+    float h = -0.05;
+    float r = 0.25 * min(w, h) * 0.5;	
+	vec2 p = local_position.xy - vec2(0.0, 0.08);
+	vec2 q = vec2(w, -h);
+    vec2 v = vec2(abs(p.x), p.y);
+    vec2 a = v - q * clamp(dot(v, q) / dot(q,q), 0.0, 1.0);
+    vec2 b = v - q * vec2(clamp(v.x / q.x, 0.0, 1.0), 1.0);
+    float k = sign(q.y);
+    float d = min(dot(a, a), dot(b, b));
+    float s = max(k * (v.x * q.y - v.y * q.x), k * (v.y - q.y));
+    float tri = sqrt(d) * sign(s);
+	
+	if (min(tri + r * 2.0, 0.0) < 0.0) {
+		return vec3(1.0);
+	}
+	
+	return color;
 }
 
 void vertex() {
@@ -36,9 +58,15 @@ void fragment() {
 		EMISSION = vec3(1.0);
 	}
 	else {
-		if (FRONT_FACING){
+		if (FRONT_FACING) {
 			if (local_position.z >= 0.0) {
-				vec3 value = circle(vec2(0.0, 0.1), 0.025);
+				vec3 value = color;
+				if (dot_note == true) {
+					value = circle();
+				}
+				else {
+					value = triangle();
+				}
 				ALBEDO = value;
 				EMISSION = value;
 			}
