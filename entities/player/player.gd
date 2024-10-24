@@ -5,25 +5,23 @@ const HitType = Radio.HitType
 @onready var left_rumbler: XRToolsRumbler = $LeftHand/LeftRumbler
 @onready var right_rumbler: XRToolsRumbler = $RightHand/RightRumbler
 
-var rumble_active: bool = false
+var xr_active: bool = false
 
 
 func _ready() -> void:
-	Radio.start.connect(start)
-	Radio.stop.connect(stop)
 	Radio.note_hit.connect(note_hit)
 
 
-func start():
-	rumble_active = true
+func _on_start_xr_xr_started() -> void:
+	xr_active = true
 
 
-func stop():
-	rumble_active = false
+func _on_start_xr_xr_ended() -> void:
+	xr_active = false
 
 
 func note_hit(hit_type: HitType):
-	if rumble_active:
+	if xr_active:
 		if hit_type == HitType.LEFT:
 			left_rumbler.rumble()
 		else:

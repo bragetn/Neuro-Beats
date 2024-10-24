@@ -74,3 +74,6 @@ func update_cut_direction(cut_direction) -> void:
 		rotation.z = deg_to_rad(-45)
 	elif cut_direction == 7:
 		rotation.z = deg_to_rad(45)
+	elif cut_direction == 8:
+		note_mesh.set_instance_shader_parameter("dot_note", true)
+		$GoodHitBody/CollisionShape3D.shape.size.y = 0.8
