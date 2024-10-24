@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkbomxkity4rq"]
+[gd_scene load_steps=4 format=3 uid="uid://buk2obssewoma"]
 
 [ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admintheme.tres" id="1_0hfaw"]
 [ext_resource type="Script" path="res://scenes/admin/main_menu.gd" id="2_v0e05"]
@@ -66,13 +66,14 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 flat = true
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton"]
+[node name="StartLabel" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.997053, 0.997053, 0.997053, 1)
 theme_override_styles/normal = ExtResource("2_wdpdc")
 text = "Start"
 horizontal_alignment = 1
@@ -82,13 +83,14 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 flat = true
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton"]
+[node name="StatsLabel" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = ExtResource("2_wdpdc")
 text = "Stats"
 horizontal_alignment = 1
@@ -98,13 +100,14 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 flat = true
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton"]
+[node name="CreditsLabel" type="Label" parent="MarginContainer/MarginContainer/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = ExtResource("2_wdpdc")
 text = "Credits"
 horizontal_alignment = 1
