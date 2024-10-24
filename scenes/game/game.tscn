@@ -24,7 +24,7 @@ glow_enabled = true
 script = ExtResource("4_kp8mr")
 line_index = 0
 line_layer = 0
-color = 0
+hit_type = 0
 cut_direction = 0
 
 [sub_resource type="Resource" id="Resource_nuacx"]
@@ -36,14 +36,14 @@ notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_0fjs4")])
 script = ExtResource("4_kp8mr")
 line_index = 1
 line_layer = 0
-color = 0
+hit_type = 0
 cut_direction = 1
 
 [sub_resource type="Resource" id="Resource_32loc"]
 script = ExtResource("4_kp8mr")
 line_index = 2
 line_layer = 0
-color = 1
+hit_type = 1
 cut_direction = 1
 
 [sub_resource type="Resource" id="Resource_0m7em"]

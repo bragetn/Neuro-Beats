@@ -6,8 +6,8 @@ var game_params: Dictionary = {
 	GameParam.BPM: 104,
 	GameParam.SONG_SPEED: 1,
 	GameParam.BEAT_TEMPO: 1,
-	GameParam.NOTE_SPEED: 1,
-	GameParam.SPAWN_DISTANCE: 10,
+	GameParam.NOTE_SPEED: 4,
+	GameParam.SPAWN_DISTANCE: 8,
 }
 
 @onready var note_spawner: NoteSpawner = $NoteSpawner

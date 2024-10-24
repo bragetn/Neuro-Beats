@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bwqn80prihy0j"
-path="res://.godot/imported/saber.glb-752189a0f4d5ce9e761635998baf7b57.scn"
+uid="uid://bceh3h7u2h314"
+path="res://.godot/imported/saber.glb-c2129700be512225178aac6456601bfe.scn"
 
 [deps]
 
-source_file="res://entities/blade/saber.glb"
-dest_files=["res://.godot/imported/saber.glb-752189a0f4d5ce9e761635998baf7b57.scn"]
+source_file="res://entities/saber/saber.glb"
+dest_files=["res://.godot/imported/saber.glb-c2129700be512225178aac6456601bfe.scn"]
 
 [params]
 
