@@ -5,3 +5,4 @@
 [resource]
 default_font = ExtResource("1_6oe7x")
 default_font_size = 24
+Label/colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
