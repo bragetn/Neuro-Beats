@@ -32,30 +32,25 @@ theme = ExtResource("1_0hfaw")
 script = ExtResource("2_v0e05")
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.582
+anchor_left = 0.533
 anchor_right = 1.0
-anchor_bottom = 1.025
-offset_left = -1117.44
-offset_bottom = -27.0001
-grow_horizontal = 2
+anchor_bottom = 1.0
+offset_left = 0.639893
+grow_horizontal = 0
 grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(800, 0)
-layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2"]
 layout_mode = 2
 color = Color(1, 1, 1, 0.901961)
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer/MarginContainer"]
+[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 20
@@ -63,35 +58,32 @@ theme_override_constants/margin_top = 140
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/VBoxContainer2/MarginContainer"]
 layout_mode = 2
 
-[node name="SceneTitleMargin" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_bottom = 300
-
-[node name="SceneTitle" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/SceneTitleMargin"]
+[node name="SceneTitle" type="Label" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "MAIN MENU"
 
-[node name="ButtonMargin" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+[node name="ButtonMargin" type="MarginContainer" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 6
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin"]
+[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="StartButton" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
+[node name="StartButton" type="Button" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 flat = true
 script = ExtResource("3_is4sm")
 
-[node name="StartLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton"]
+[node name="StartLabel" type="Label" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,7 +95,7 @@ theme_override_styles/normal = ExtResource("2_wdpdc")
 text = "Start"
 horizontal_alignment = 1
 
-[node name="OverlayTexture" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton"]
+[node name="OverlayTexture" type="TextureRect" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -117,13 +109,13 @@ grow_vertical = 2
 texture = ExtResource("4_naxe6")
 expand_mode = 1
 
-[node name="StatsButton" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
+[node name="StatsButton" type="Button" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 flat = true
 script = ExtResource("6_xglk1")
 
-[node name="StatsLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton"]
+[node name="StatsLabel" type="Label" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,7 +127,7 @@ theme_override_styles/normal = ExtResource("2_wdpdc")
 text = "Stats"
 horizontal_alignment = 1
 
-[node name="OverlayTexture" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton"]
+[node name="OverlayTexture" type="TextureRect" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -149,13 +141,13 @@ grow_vertical = 2
 texture = ExtResource("4_naxe6")
 expand_mode = 1
 
-[node name="CreditsButton" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
+[node name="CreditsButton" type="Button" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 flat = true
 script = ExtResource("7_17tk0")
 
-[node name="CreditsLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton"]
+[node name="CreditsLabel" type="Label" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -167,7 +159,7 @@ theme_override_styles/normal = ExtResource("2_wdpdc")
 text = "Credits"
 horizontal_alignment = 1
 
-[node name="OverlayTexture" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton"]
+[node name="OverlayTexture" type="TextureRect" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -181,17 +173,17 @@ grow_vertical = 2
 texture = ExtResource("4_naxe6")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 50
 
-[node name="ExitButton" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
+[node name="ExitButton" type="Button" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 flat = true
 script = ExtResource("8_l8lod")
 
-[node name="ExitLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton"]
+[node name="ExitLabel" type="Label" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -204,7 +196,7 @@ text = "Exit"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OverlayTexture" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton"]
+[node name="OverlayTexture" type="TextureRect" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -218,13 +210,13 @@ grow_vertical = 2
 texture = ExtResource("4_naxe6")
 expand_mode = 1
 
-[connection signal="mouse_entered" from="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" to="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" to="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="mouse_entered" from="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton" to="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton" to="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton" to="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton" to="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton" to="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton" to="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]

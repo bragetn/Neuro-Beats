@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 			queue_free()
 
 
-func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_plane: Plane) -> void:
+func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hit_position: Vector3) -> void:
 	# Stop and hide note
 	is_active = false
 	visible = false
@@ -49,33 +49,40 @@ func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_plane: Plane) -> vo
 	
 	# Check if note and saber has the same hit type
 	if saber_hit_type == data.hit_type:
-		# Check if saber has the correct cut direction
-		if -hit_vector.y > abs(hit_vector.x):
+		if data.cut_direction == CutDirection.ANY:
 			hit_audio_player.stream = good_hit_audio
 			print("Good slice")
 		else:
-			hit_audio_player.stream = bad_hit_audio
-			print("Bad slice")
+			# Check if saber has the correct cut direction
+			if -hit_vector.y > abs(hit_vector.x):
+				hit_audio_player.stream = good_hit_audio
+				print("Good slice")
+			else:
+				hit_audio_player.stream = bad_hit_audio
+				print("Bad slice")
 	else:
 		hit_audio_player.stream = bad_hit_audio
 		print("Bad slice")
 	
+	if hit_normal == Vector3.ZERO:
+		hit_normal = Vector3.LEFT
+	
 	# Create
-	create_note_slice(Vector3.LEFT, Vector3.ZERO)
-	create_note_slice(Vector3.RIGHT, Vector3.ZERO)
+	create_note_slice(hit_normal, Vector3.ZERO)
+	create_note_slice(-hit_normal, Vector3.ZERO)
 	
 	# Play hit audio and destroy note instance
 	hit_audio_player.finished.connect(func(): queue_free())
 	hit_audio_player.play()
 
 
-func create_note_slice(hit_normal: Vector3, plane_position: Vector3) -> void:
+func create_note_slice(hit_normal: Vector3, hit_position: Vector3) -> void:
 	var note_slice: NoteSlice = note_slice_scene.instantiate()
 	add_sibling(note_slice)
 	note_slice.position = position
 	note_slice.rotation.z = rotation.z
 	note_slice.linear_velocity.z = velocity
-	note_slice.setup(data, hit_normal, plane_position)
+	note_slice.setup(data, hit_normal, hit_position)
 
 
 func update_hit_type(hit_type) -> void:
