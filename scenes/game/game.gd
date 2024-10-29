@@ -3,11 +3,11 @@ class_name Game
 
 const GameParam = Radio.GameParam
 var game_params: Dictionary = {
-	GameParam.BPM: 104,
+	GameParam.BPM: 110,
 	GameParam.SONG_SPEED: 1,
-	GameParam.BEAT_TEMPO: 1,
+	GameParam.BEAT_TEMPO: 2,
 	GameParam.NOTE_SPEED: 4,
-	GameParam.SPAWN_DISTANCE: 8,
+	GameParam.SPAWN_DISTANCE: 10,
 }
 
 @onready var note_spawner: NoteSpawner = $NoteSpawner

@@ -37,8 +37,8 @@ func spawn() -> void:
 
 func instantiate_note(note_data) -> void:
 	var note: Note = note_scene.instantiate()
-	add_child(note)
 	note.position = get_note_position(note_data.line_index, note_data.line_layer)
+	add_child(note)
 	note.setup(note_data, note_velocity)
 
 

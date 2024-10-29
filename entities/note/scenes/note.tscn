@@ -22,6 +22,7 @@ material_override = SubResource("ShaderMaterial_k7268")
 mesh = ExtResource("3_32sk2")
 
 [node name="HitAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+volume_db = -15.0
 
 [node name="GoodHitBody" type="StaticBody3D" parent="."]
 
