@@ -21,4 +21,3 @@ func change_ui_scene(path: String):
 	ui_window.add_child(scene) 
 	ui_window.remove_child(current_ui_scene)
 	current_ui_scene = scene
-	

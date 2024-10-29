@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://b7sa7y7rwhki0"]
 
-[ext_resource type="Script" path="res://scenes/admin/admin.gd" id="1_b8vqp"]
-[ext_resource type="PackedScene" uid="uid://j0pr5ybf1jci" path="res://ui/ui_components/left_sidebar.tscn" id="3_2dqkr"]
+[ext_resource type="Script" path="res://scenes/admin/admin_panel/admin.gd" id="1_b8vqp"]
+[ext_resource type="PackedScene" uid="uid://j0pr5ybf1jci" path="res://ui/ui_components/layouts/left_sidebar.tscn" id="3_2dqkr"]
 [ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admintheme.tres" id="3_l31sn"]
-[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/ui_components/nav_bar.tscn" id="3_uwe8w"]
+[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/ui_components/layouts/nav_bar.tscn" id="3_uwe8w"]
 [ext_resource type="StyleBox" uid="uid://c06aurh6vxnm6" path="res://ui/resources/style_boxes/note_control_button.tres" id="4_tp1de"]
 [ext_resource type="StyleBox" uid="uid://bj8iaqb0er2du" path="res://ui/resources/style_boxes/start_test_button.tres" id="5_pj1cw"]
 

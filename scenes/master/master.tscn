@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/master/master.gd" id="1_bwd8r"]
 [ext_resource type="PackedScene" uid="uid://choxo4xrftp41" path="res://scenes/game/game.tscn" id="1_cneql"]
-[ext_resource type="PackedScene" uid="uid://365l3vokhaf7" path="res://scenes/admin/main_menu.tscn" id="3_5xkyx"]
+[ext_resource type="PackedScene" uid="uid://365l3vokhaf7" path="res://scenes/admin/main_menu/main_menu.tscn" id="3_5xkyx"]
 
 [node name="Master" type="Node"]
 script = ExtResource("1_bwd8r")

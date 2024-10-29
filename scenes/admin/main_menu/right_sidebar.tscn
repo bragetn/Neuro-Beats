@@ -1,13 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkbomxkity4rq"]
+[gd_scene load_steps=10 format=3 uid="uid://d2w8rs2knl0qi"]
 
-[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admintheme.tres" id="1_0hfaw"]
-[ext_resource type="Script" path="res://scenes/admin/main_menu.gd" id="2_v0e05"]
-[ext_resource type="StyleBox" uid="uid://w74vlmo0yyc0" path="res://ui/resources/style_boxes/main_menu_button.tres" id="2_wdpdc"]
-[ext_resource type="Script" path="res://ui/ui_components/hover_effect.gd" id="3_is4sm"]
-[ext_resource type="Texture2D" uid="uid://du7xpmp5qx5qk" path="res://ui/resources/images/overlay.png" id="4_naxe6"]
-[ext_resource type="Script" path="res://ui/ui_components/stats_button_overlay.gd" id="6_xglk1"]
-[ext_resource type="Script" path="res://ui/ui_components/credits_button.gd" id="7_17tk0"]
-[ext_resource type="Script" path="res://ui/ui_components/exit_button.gd" id="8_l8lod"]
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admintheme.tres" id="1_1e04w"]
+[ext_resource type="Script" path="res://scenes/admin/main_menu/main_menu.gd" id="2_5us7q"]
+[ext_resource type="Script" path="res://ui/ui_components/buttons/hover_effect.gd" id="3_40udr"]
+[ext_resource type="StyleBox" uid="uid://w74vlmo0yyc0" path="res://ui/resources/style_boxes/main_menu_button.tres" id="4_pfsel"]
+[ext_resource type="Texture2D" uid="uid://du7xpmp5qx5qk" path="res://ui/resources/images/overlay.png" id="5_fgoqf"]
+[ext_resource type="Script" path="res://ui/ui_components/buttons/stats_button_overlay.gd" id="6_corlc"]
+[ext_resource type="Script" path="res://ui/ui_components/buttons/credits_button.gd" id="7_vuiey"]
+[ext_resource type="Script" path="res://ui/ui_components/buttons/exit_button.gd" id="8_sytww"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev6vh"]
 bg_color = Color(1, 1, 1, 0)
@@ -28,8 +28,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_0hfaw")
-script = ExtResource("2_v0e05")
+theme = ExtResource("1_1e04w")
+script = ExtResource("2_5us7q")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
@@ -45,7 +45,7 @@ size_flags_horizontal = 8
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer2"]
 layout_mode = 2
-color = Color(1, 1, 1, 0.901961)
+color = Color(0.862745, 0.862745, 0.862745, 0.784314)
 
 [node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
@@ -81,7 +81,7 @@ theme_override_constants/separation = 20
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 flat = true
-script = ExtResource("3_is4sm")
+script = ExtResource("3_40udr")
 
 [node name="StartLabel" type="Label" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton"]
 layout_mode = 1
@@ -91,7 +91,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.997053, 0.997053, 0.997053, 1)
-theme_override_styles/normal = ExtResource("2_wdpdc")
+theme_override_styles/normal = ExtResource("4_pfsel")
 text = "Start"
 horizontal_alignment = 1
 
@@ -106,14 +106,14 @@ offset_right = 14.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_naxe6")
+texture = ExtResource("5_fgoqf")
 expand_mode = 1
 
 [node name="StatsButton" type="Button" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 flat = true
-script = ExtResource("6_xglk1")
+script = ExtResource("6_corlc")
 
 [node name="StatsLabel" type="Label" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton"]
 layout_mode = 1
@@ -123,7 +123,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = ExtResource("2_wdpdc")
+theme_override_styles/normal = ExtResource("4_pfsel")
 text = "Stats"
 horizontal_alignment = 1
 
@@ -138,14 +138,14 @@ offset_right = 14.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_naxe6")
+texture = ExtResource("5_fgoqf")
 expand_mode = 1
 
 [node name="CreditsButton" type="Button" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 flat = true
-script = ExtResource("7_17tk0")
+script = ExtResource("7_vuiey")
 
 [node name="CreditsLabel" type="Label" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton"]
 layout_mode = 1
@@ -155,7 +155,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = ExtResource("2_wdpdc")
+theme_override_styles/normal = ExtResource("4_pfsel")
 text = "Credits"
 horizontal_alignment = 1
 
@@ -170,7 +170,7 @@ offset_right = 14.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_naxe6")
+texture = ExtResource("5_fgoqf")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer"]
@@ -181,7 +181,7 @@ theme_override_constants/margin_top = 50
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 flat = true
-script = ExtResource("8_l8lod")
+script = ExtResource("8_sytww")
 
 [node name="ExitLabel" type="Label" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/ExitButton"]
 layout_mode = 1
@@ -207,7 +207,7 @@ offset_right = 14.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_naxe6")
+texture = ExtResource("5_fgoqf")
 expand_mode = 1
 
 [connection signal="mouse_entered" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" method="_on_mouse_entered"]

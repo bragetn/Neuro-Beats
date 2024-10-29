@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bo200tr3bnup7"]
 
-[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admintheme.tres" id="1_fd4tj"]
-[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/ui_components/nav_bar.tscn" id="1_xc2hb"]
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admintheme.tres" id="1_8we0m"]
+[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/ui_components/layouts/nav_bar.tscn" id="2_jn1v3"]
 
 [node name="NoteControl" type="Control"]
 layout_mode = 3
@@ -10,9 +10,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_fd4tj")
+theme = ExtResource("1_8we0m")
 
-[node name="NavBar" parent="." instance=ExtResource("1_xc2hb")]
+[node name="NavBar" parent="." instance=ExtResource("2_jn1v3")]
 z_index = 1
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 1
