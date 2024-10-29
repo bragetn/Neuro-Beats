@@ -6,7 +6,7 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	#Radio.change_ui_scene.emit("res://scenes/admin/admin/admin.tscn")
+	#Radio.change_ui_scene.emit("res://scenes/admin/admi_panel/admin.tscn")
 	print("help") #not printing
 	
 	
