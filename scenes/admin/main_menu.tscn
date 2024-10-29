@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://365l3vokhaf7"]
 
-[ext_resource type="PackedScene" uid="uid://buk2obssewoma" path="res://ui/ui_components/right_sidebar.tscn" id="1_60gug"]
+[ext_resource type="PackedScene" uid="uid://bkbomxkity4rq" path="res://ui/ui_components/right_sidebar.tscn" id="1_cbdhy"]
 [ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/ui_components/nav_bar.tscn" id="1_tkt3i"]
 
 [node name="MainMenu" type="Control"]
@@ -11,12 +11,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="RightSidebar" parent="." instance=ExtResource("1_cbdhy")]
+layout_mode = 1
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 1.23124, 3, 5)
 fov = 50.0
-
-[node name="RightSidebar" parent="." instance=ExtResource("1_60gug")]
-layout_mode = 1
 
 [node name="NavBar" parent="." instance=ExtResource("1_tkt3i")]
 custom_minimum_size = Vector2(0, 90)

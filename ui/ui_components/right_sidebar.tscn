@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://buk2obssewoma"]
+[gd_scene load_steps=10 format=3 uid="uid://bkbomxkity4rq"]
 
 [ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admintheme.tres" id="1_0hfaw"]
 [ext_resource type="Script" path="res://scenes/admin/main_menu.gd" id="2_v0e05"]
