@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://365l3vokhaf7"]
 
-[ext_resource type="PackedScene" uid="uid://buk2obssewoma" path="res://ui/right_sidebar.tscn" id="1_60gug"]
+[ext_resource type="PackedScene" uid="uid://buk2obssewoma" path="res://ui/ui_components/right_sidebar.tscn" id="1_60gug"]
 [ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/ui_components/nav_bar.tscn" id="1_tkt3i"]
 
 [node name="MainMenu" type="Control"]
