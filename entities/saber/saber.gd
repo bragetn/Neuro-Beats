@@ -2,7 +2,7 @@
 extends Node3D
 class_name Saber
 
-const HitType = Radio.HitType
+const HitType = Enums.HitType
 
 @export var hit_type: HitType
 
@@ -19,21 +19,17 @@ func _ready() -> void:
 	update_hit_type()
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var space_state = get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(start_point.global_position, end_point.global_position, mask)
 	var result = space_state.intersect_ray(query)
+	
 	if result:
-		var note: Note = result.collider.get_parent()
 		Radio.note_hit.emit(hit_type)
-		
-		if note.hit_type != hit_type:
-			note.slice(false)
-		else:
-			var hit_vector = end_point.global_position - prev_position
-			hit_vector = hit_vector.rotated(Vector3.FORWARD, note.rotation.z)
-			
-			note.slice(-hit_vector.y > abs(hit_vector.x))
+		var note: Note = result.collider.get_parent()
+		var hit_vector = end_point.global_position - prev_position
+		var hit_plane = Plane(start_point.global_position, end_point.global_position, prev_position)
+		note.slice(hit_type, hit_vector, hit_plane)
 	
 	prev_position = end_point.global_position
 

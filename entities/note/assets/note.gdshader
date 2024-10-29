@@ -50,7 +50,7 @@ void vertex() {
 }
 
 void fragment() {
-	float d = point_to_plane_distance(world_position);
+	float d = point_to_plane_distance(local_position);
 	if (d < 0.0) {
 		ALPHA = 0.0;
 	}

@@ -1,11 +1,11 @@
 extends Node
 class_name NoteSpawner
 
-const GameParam = Radio.GameParam
+const GameParam = Enums.GameParam
 
 @export var note_groups: Array[NoteGroup] = []
 
-var note_scene: PackedScene = preload("res://entities/note/note.tscn")
+var note_scene: PackedScene = preload("res://entities/note/scenes/note.tscn")
 
 var weighted_sum: int = 0
 
@@ -39,7 +39,7 @@ func instantiate_note(note_data) -> void:
 	var note: Note = note_scene.instantiate()
 	add_child(note)
 	note.position = get_note_position(note_data.line_index, note_data.line_layer)
-	note.setup(note_data.hit_type, note_data.cut_direction, note_velocity)
+	note.setup(note_data, note_velocity)
 
 
 func get_random_note_group() -> NoteGroup:

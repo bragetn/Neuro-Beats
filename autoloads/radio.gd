@@ -1,17 +1,7 @@
 extends Node
 
-enum HitType {
-	LEFT,
-	RIGHT,
-}
-
-enum GameParam {
-	BPM,
-	SONG_SPEED,
-	BEAT_TEMPO,
-	NOTE_SPEED,
-	SPAWN_DISTANCE,
-}
+const HitType = Enums.HitType
+const GameParam = Enums.GameParam
 
 signal start
 

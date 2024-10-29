@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_k2tfa"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_p6tfs"]
-[ext_resource type="Script" path="res://entities/note/note_spawner.gd" id="2_hafj4"]
+[ext_resource type="Script" path="res://entities/note/scripts/note_spawner.gd" id="2_hafj4"]
 [ext_resource type="PackedScene" uid="uid://b3wtmxh8rq4v6" path="res://entities/player/player.tscn" id="2_l0gkx"]
-[ext_resource type="Script" path="res://entities/note/note_group.gd" id="3_nuc7l"]
-[ext_resource type="Script" path="res://entities/note/note_data.gd" id="4_kp8mr"]
+[ext_resource type="Script" path="res://entities/note/scripts/note_group.gd" id="3_nuc7l"]
+[ext_resource type="Script" path="res://entities/note/scripts/note_data.gd" id="4_kp8mr"]
 [ext_resource type="AudioStream" uid="uid://segagvvmmwkn" path="res://scenes/game/NeuroBeats.mp3" id="6_lblwx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mykrl"]
@@ -35,17 +35,17 @@ notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_0fjs4")])
 
 [sub_resource type="Resource" id="Resource_87rkv"]
 script = ExtResource("4_kp8mr")
-line_index = 1
-line_layer = 0
+line_index = 0
+line_layer = 1
 hit_type = 0
-cut_direction = 1
+cut_direction = 2
 
 [sub_resource type="Resource" id="Resource_32loc"]
 script = ExtResource("4_kp8mr")
-line_index = 2
-line_layer = 0
+line_index = 3
+line_layer = 1
 hit_type = 1
-cut_direction = 1
+cut_direction = 3
 
 [sub_resource type="Resource" id="Resource_0m7em"]
 script = ExtResource("3_nuc7l")
