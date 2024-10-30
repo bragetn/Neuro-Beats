@@ -48,21 +48,20 @@ func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hi
 	hit_vector = hit_vector.rotated(Vector3.FORWARD, rotation.z)
 	
 	# Check if note and saber has the same hit type
+	var good: bool = false
+	
 	if saber_hit_type == data.hit_type:
 		if data.cut_direction == CutDirection.ANY:
 			hit_audio_player.stream = good_hit_audio
-			print("Good slice")
 		else:
 			# Check if saber has the correct cut direction
 			if -hit_vector.y > abs(hit_vector.x):
+				good = true
 				hit_audio_player.stream = good_hit_audio
-				print("Good slice")
 			else:
 				hit_audio_player.stream = bad_hit_audio
-				print("Bad slice")
 	else:
 		hit_audio_player.stream = bad_hit_audio
-		print("Bad slice")
 	
 	if hit_normal == Vector3.ZERO:
 		hit_normal = Vector3.LEFT
@@ -73,7 +72,10 @@ func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hi
 	
 	# Play hit audio and destroy note instance
 	hit_audio_player.finished.connect(func(): queue_free())
-	hit_audio_player.play()
+	if good:
+		hit_audio_player.play(0.18)
+	else:
+		hit_audio_player.play()
 
 
 func create_note_slice(hit_normal: Vector3, hit_position: Vector3) -> void:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://d2w8rs2knl0qi"]
 
 [ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admintheme.tres" id="1_1e04w"]
-[ext_resource type="Script" path="res://scenes/admin/main_menu/main_menu.gd" id="2_5us7q"]
+[ext_resource type="Script" path="res://scenes/admin/main_menu/right_sidebar.gd" id="2_lm4b5"]
 [ext_resource type="Script" path="res://ui/ui_components/buttons/hover_effect.gd" id="3_40udr"]
 [ext_resource type="StyleBox" uid="uid://w74vlmo0yyc0" path="res://ui/resources/style_boxes/main_menu_button.tres" id="4_pfsel"]
 [ext_resource type="Texture2D" uid="uid://du7xpmp5qx5qk" path="res://ui/resources/images/overlay.png" id="5_fgoqf"]
@@ -29,16 +29,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_1e04w")
-script = ExtResource("2_5us7q")
+script = ExtResource("2_lm4b5")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.533
+anchor_left = 0.501
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.639893
+offset_left = 0.079895
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 8
@@ -85,9 +85,14 @@ script = ExtResource("3_40udr")
 
 [node name="StartLabel" type="Label" parent="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.003
+anchor_right = 0.992
 anchor_bottom = 1.0
+offset_left = 0.417
+offset_top = -5.0
+offset_right = -0.112061
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.997053, 0.997053, 0.997053, 1)
@@ -213,6 +218,7 @@ expand_mode = 1
 [connection signal="mouse_entered" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StartButton" method="_on_pressed"]
 [connection signal="mouse_entered" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/StatsButton" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton" to="MarginContainer2/VBoxContainer2/MarginContainer/VBoxContainer/ButtonMargin/ButtonContainer/CreditsButton" method="_on_mouse_entered"]

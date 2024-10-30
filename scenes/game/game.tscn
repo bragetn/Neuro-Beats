@@ -94,7 +94,6 @@ script = ExtResource("1_p6tfs")
 environment = SubResource("Environment_5j4s0")
 
 [node name="RealisticWater" parent="WorldEnvironment" instance=ExtResource("2_xcxhj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00382972, -0.00349212, 0.00104284)
 
 [node name="Platform" parent="WorldEnvironment" instance=ExtResource("3_g4hpm")]
 

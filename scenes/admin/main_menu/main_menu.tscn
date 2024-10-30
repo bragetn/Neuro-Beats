@@ -16,7 +16,7 @@ layout_mode = 1
 script = null
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 1.23124, 3, 5)
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 2.52585, 3, 5)
 fov = 50.0
 
 [node name="NavBar" parent="." instance=ExtResource("1_tkt3i")]
