@@ -63,6 +63,8 @@ func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hi
 	else:
 		hit_audio_player.stream = bad_hit_audio
 	
+	save_hit(data,good)
+	
 	if hit_normal == Vector3.ZERO:
 		hit_normal = Vector3.LEFT
 	
@@ -76,6 +78,13 @@ func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hi
 		hit_audio_player.play(0.18)
 	else:
 		hit_audio_player.play()
+
+
+func save_hit(note_data: NoteData, good: bool) -> void:
+	var note_hit_data: NoteHitData = NoteHitData.new()
+	note_hit_data.note_data = note_data
+	note_hit_data.hit = good
+	DataManager.register_hit(note_hit_data)
 
 
 func create_note_slice(hit_normal: Vector3, hit_position: Vector3) -> void:
