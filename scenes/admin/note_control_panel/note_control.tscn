@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bo200tr3bnup7"]
 
-[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admintheme.tres" id="1_8we0m"]
-[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/ui_components/layouts/nav_bar.tscn" id="2_jn1v3"]
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="1_8we0m"]
+[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="2_jn1v3"]
 
 [node name="NoteControl" type="Control"]
 layout_mode = 3
@@ -18,6 +18,7 @@ custom_minimum_size = Vector2(0, 90)
 layout_mode = 1
 anchors_preset = 10
 anchor_bottom = 0.0
+offset_bottom = 0.0
 grow_vertical = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]

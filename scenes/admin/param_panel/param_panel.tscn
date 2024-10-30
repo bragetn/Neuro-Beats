@@ -1,0 +1,176 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7sa7y7rwhki0"]
+
+[ext_resource type="Script" path="res://scenes/admin/param_panel/param_panel.gd" id="2_0jics"]
+[ext_resource type="FontVariation" uid="uid://cxuq2j0pcbpw1" path="res://ui/resources/fonts/inter/inter-bold.tres" id="4_l1ofr"]
+[ext_resource type="PackedScene" uid="uid://byhjeji762q28" path="res://ui/buttons/main_button/main_button.tscn" id="5_c5d0e"]
+[ext_resource type="PackedScene" uid="uid://dpdnsegsgy2q4" path="res://ui/buttons/secondary_button/secondary_button.tscn" id="5_hrx33"]
+[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="6_fleot"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gefco"]
+font = ExtResource("4_l1ofr")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[node name="ParamPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_0jics")
+
+[node name="Navbar" parent="." instance=ExtResource("6_fleot")]
+layout_mode = 1
+anchor_top = 0.001
+anchor_bottom = 0.084
+offset_top = -0.08
+offset_bottom = 0.279991
+
+[node name="Sidebar" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.409
+anchor_bottom = 1.001
+offset_top = 91.0
+offset_right = 0.719971
+offset_bottom = -0.0800781
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.862745, 0.862745, 0.862745, 0.784314)
+
+[node name="MainMargin" type="MarginContainer" parent="Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="MainVBox" type="VBoxContainer" parent="Sidebar/MainMargin"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="TitleMargin" type="MarginContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Sidebar/MainMargin/MainVBox/TitleMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 52
+text = "PARAM PANEL"
+label_settings = SubResource("LabelSettings_gefco")
+
+[node name="ParamsVBox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 100
+
+[node name="SongSpeedContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 240
+
+[node name="song_speed_label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/SongSpeedContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
+text = "Song speed
+"
+
+[node name="song_speed_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/SongSpeedContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+min_value = 0.5
+max_value = 1.5
+step = 0.125
+value = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="NoteSpeedContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 240
+
+[node name="note_speed_label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/NoteSpeedContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
+text = "Note speed
+"
+
+[node name="note_speed_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/NoteSpeedContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 6.0
+value = 3.0
+
+[node name="BeatTempoContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 240
+
+[node name="beat_tempo_ label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/BeatTempoContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
+text = "Beat tempo
+"
+
+[node name="beat_tempo_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/BeatTempoContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 4.0
+value = 2.0
+
+[node name="SpawnDistanceContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 210
+
+[node name="spawn_distance_label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/SpawnDistanceContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
+text = "Spawn distance
+"
+
+[node name="spawn_distance_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/SpawnDistanceContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+min_value = 5.0
+max_value = 25.0
+step = 2.5
+value = 15.0
+
+[node name="ButtonVBox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="NoteControlButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("5_hrx33")]
+layout_mode = 2
+text = "NOTE CONTROL"
+
+[node name="StartTestButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("5_c5d0e")]
+layout_mode = 2
+text = "START TEST"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, -0.536869, 3, 5)
+fov = 50.0
+
+[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/SongSpeedContainer/song_speed_slider" to="." method="_on_song_speed_slider_value_changed"]
+[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/NoteSpeedContainer/note_speed_slider" to="." method="_on_note_speed_slider_value_changed"]
+[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/BeatTempoContainer/beat_tempo_slider" to="." method="_on_beat_tempo_slider_value_changed"]
+[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/SpawnDistanceContainer/spawn_distance_slider" to="." method="_on_spawn_distance_slider_value_changed"]
+[connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StartTestButton" to="." method="_on_start_test_button_pressed"]

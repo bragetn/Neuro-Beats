@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://clnn1raxmu4wx"]
 
-[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/ui_components/layouts/nav_bar.tscn" id="1_e5co8"]
+[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="1_e5co8"]
 [ext_resource type="Script" path="res://scenes/admin/user_statistics_panel/user_statistics_panel.gd" id="1_kcyrv"]
-[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admintheme.tres" id="2_va8fm"]
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="2_va8fm"]
 
 [node name="UserStatisticsPanel" type="Control"]
 layout_mode = 3
@@ -19,6 +19,7 @@ custom_minimum_size = Vector2(0, 90)
 layout_mode = 1
 anchors_preset = 10
 anchor_bottom = 0.0
+offset_bottom = 0.0
 grow_vertical = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]

@@ -1,6 +1,6 @@
 extends Node
 
-var note_hit_data: Array[NoteHitData]
+var note_hits: Array[NoteHitData]
 var score_grid: Array[Array]
 
 func _ready() -> void:
@@ -15,11 +15,9 @@ func instansiate_score_grid() -> void:
 		score_grid.append(row)
 
 
-func register_hit(hit: NoteHitData) -> void:
-	note_hit_data.append(hit)
-	if(hit.hit):
-		score_grid[hit.note_data.line_layer][hit.note_data.line_index].x += 1
+func register_hit(hit_data: NoteHitData) -> void:
+	note_hits.append(hit_data)
+	if(hit_data.hit):
+		score_grid[hit_data.note_data.line_layer][hit_data.note_data.line_index].x += 1
 	else:
-		score_grid[hit.note_data.line_layer][hit.note_data.line_index].y += 1
-	print(note_hit_data)
-	print(score_grid)
+		score_grid[hit_data.note_data.line_layer][hit_data.note_data.line_index].y += 1

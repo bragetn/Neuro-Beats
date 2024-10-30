@@ -1,12 +1,12 @@
 extends Control
 class_name Admin
 
-const GameParam = Radio.GameParam
+const GameParam = Enums.GameParam
 
-func _on_button_pressed() -> void:
+
+func _on_start_test_button_pressed() -> void:
 	Radio.start.emit()
-	#Radio.change_ui_scene.emit("res://scenes/admin/run_test_panel/run_test_panel.tscn")
-
+	Radio.change_ui_scene.emit("res://scenes/admin/run_test_panel/run_test_panel.tscn")
 
 
 func _on_song_speed_slider_value_changed(value: float) -> void:

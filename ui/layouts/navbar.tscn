@@ -1,12 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://dx8ofg86dnu77"]
 
-[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admintheme.tres" id="1_xvewn"]
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="1_xvewn"]
 
-[node name="NavBar" type="Control"]
+[node name="Navbar" type="Control"]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.083
+offset_bottom = 0.359993
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_xvewn")

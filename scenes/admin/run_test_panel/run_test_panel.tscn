@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmjpy1ley8qxh"]
+[gd_scene load_steps=6 format=3 uid="uid://bmjpy1ley8qxh"]
 
-[ext_resource type="PackedScene" uid="uid://j0pr5ybf1jci" path="res://ui/ui_components/layouts/left_sidebar.tscn" id="1_sbm3s"]
-[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/ui_components/layouts/nav_bar.tscn" id="2_toube"]
+[ext_resource type="Script" path="res://scenes/admin/run_test_panel/run_test_panel.gd" id="1_blltw"]
+[ext_resource type="FontVariation" uid="uid://cxuq2j0pcbpw1" path="res://ui/resources/fonts/inter/inter-bold.tres" id="2_c41s6"]
+[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="2_toube"]
+[ext_resource type="PackedScene" uid="uid://byhjeji762q28" path="res://ui/buttons/main_button/main_button.tscn" id="4_3pmpd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_veuls"]
+font = ExtResource("2_c41s6")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
 
 [node name="RunTestPanel" type="Control"]
 layout_mode = 3
@@ -10,27 +17,66 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_blltw")
 
-[node name="LeftSidebar" parent="." instance=ExtResource("1_sbm3s")]
+[node name="Navbar" parent="." instance=ExtResource("2_toube")]
 layout_mode = 1
 
-[node name="MarginContainer3" type="MarginContainer" parent="LeftSidebar"]
-layout_mode = 0
-offset_right = 702.0
-offset_bottom = 1136.0
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 200
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="NavBar" parent="." instance=ExtResource("2_toube")]
+[node name="Sidebar" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 10
-anchor_bottom = 0.0
-offset_top = 45.0
-offset_bottom = 45.0
-grow_vertical = 1
+anchor_right = 0.409
+anchor_bottom = 1.0
+offset_top = 90.0
+offset_right = 0.719971
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.862745, 0.862745, 0.862745, 0.784314)
+
+[node name="MainMargin" type="MarginContainer" parent="Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="MainVBox" type="VBoxContainer" parent="Sidebar/MainMargin"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="TitleMargin" type="MarginContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Sidebar/MainMargin/MainVBox/TitleMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 52
+text = "RUNNING TEST"
+label_settings = SubResource("LabelSettings_veuls")
+
+[node name="ButtonVBox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="StopTestButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("4_3pmpd")]
+layout_mode = 2
+text = "STOP TEST"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, -0.536869, 3, 5)
 fov = 50.0
+
+[connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StopTestButton" to="." method="_on_stop_test_button_pressed"]
