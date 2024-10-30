@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bst2cjot4eyl2"
+
+[deps]
+
+files=["res://data/user_data/test_data.good.translation", "res://data/user_data/test_data.bad.translation", "res://data/user_data/test_data.total.translation", "res://data/user_data/test_data.total.translation", "res://data/user_data/test_data.A1.translation", "res://data/user_data/test_data.A1.translation", "res://data/user_data/test_data.A2.translation", "res://data/user_data/test_data.A2.translation", "res://data/user_data/test_data.A3.translation", "res://data/user_data/test_data.A3.translation", "res://data/user_data/test_data.A4.translation", "res://data/user_data/test_data.A4.translation", "res://data/user_data/test_data.B1.translation", "res://data/user_data/test_data.B1.translation", "res://data/user_data/test_data.B2.translation", "res://data/user_data/test_data.B2.translation", "res://data/user_data/test_data.B3.translation", "res://data/user_data/test_data.B3.translation", "res://data/user_data/test_data.B4.translation", "res://data/user_data/test_data.B4.translation", "res://data/user_data/test_data.C1.translation", "res://data/user_data/test_data.C1.translation", "res://data/user_data/test_data.C2.translation", "res://data/user_data/test_data.C2.translation", "res://data/user_data/test_data.C3.translation", "res://data/user_data/test_data.C3.translation", "res://data/user_data/test_data.C4.translation", "res://data/user_data/test_data.C4.translation"]
+
+source_file="res://data/user_data/test_data.csv"
+dest_files=["res://data/user_data/test_data.good.translation", "res://data/user_data/test_data.bad.translation", "res://data/user_data/test_data.total.translation", "res://data/user_data/test_data.total.translation", "res://data/user_data/test_data.A1.translation", "res://data/user_data/test_data.A1.translation", "res://data/user_data/test_data.A2.translation", "res://data/user_data/test_data.A2.translation", "res://data/user_data/test_data.A3.translation", "res://data/user_data/test_data.A3.translation", "res://data/user_data/test_data.A4.translation", "res://data/user_data/test_data.A4.translation", "res://data/user_data/test_data.B1.translation", "res://data/user_data/test_data.B1.translation", "res://data/user_data/test_data.B2.translation", "res://data/user_data/test_data.B2.translation", "res://data/user_data/test_data.B3.translation", "res://data/user_data/test_data.B3.translation", "res://data/user_data/test_data.B4.translation", "res://data/user_data/test_data.B4.translation", "res://data/user_data/test_data.C1.translation", "res://data/user_data/test_data.C1.translation", "res://data/user_data/test_data.C2.translation", "res://data/user_data/test_data.C2.translation", "res://data/user_data/test_data.C3.translation", "res://data/user_data/test_data.C3.translation", "res://data/user_data/test_data.C4.translation", "res://data/user_data/test_data.C4.translation"]
+
+[params]
+
+compress=true
+delimiter=0
