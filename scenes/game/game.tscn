@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://choxo4xrftp41"]
+[gd_scene load_steps=54 format=3 uid="uid://choxo4xrftp41"]
 
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_k2tfa"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_p6tfs"]
@@ -34,7 +34,7 @@ cut_direction = 1
 
 [sub_resource type="Resource" id="Resource_nuacx"]
 script = ExtResource("3_nuc7l")
-weight = 10
+weight = 8
 notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_0fjs4")])
 
 [sub_resource type="Resource" id="Resource_87rkv"]
@@ -46,27 +46,8 @@ cut_direction = 1
 
 [sub_resource type="Resource" id="Resource_0m7em"]
 script = ExtResource("3_nuc7l")
-weight = 10
-notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_87rkv")])
-
-[sub_resource type="Resource" id="Resource_imycv"]
-script = ExtResource("4_kp8mr")
-line_index = 1
-line_layer = 0
-hit_type = 0
-cut_direction = 1
-
-[sub_resource type="Resource" id="Resource_tvoih"]
-script = ExtResource("4_kp8mr")
-line_index = 2
-line_layer = 0
-hit_type = 1
-cut_direction = 1
-
-[sub_resource type="Resource" id="Resource_mro33"]
-script = ExtResource("3_nuc7l")
 weight = 8
-notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_imycv"), SubResource("Resource_tvoih")])
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_87rkv")])
 
 [sub_resource type="Resource" id="Resource_3j3tf"]
 script = ExtResource("4_kp8mr")
@@ -84,8 +65,218 @@ cut_direction = 1
 
 [sub_resource type="Resource" id="Resource_b76ms"]
 script = ExtResource("3_nuc7l")
-weight = 3
+weight = 6
 notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_3j3tf"), SubResource("Resource_w7twe")])
+
+[sub_resource type="Resource" id="Resource_ybpuc"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 0
+hit_type = 0
+cut_direction = 1
+
+[sub_resource type="Resource" id="Resource_g6wxk"]
+script = ExtResource("3_nuc7l")
+weight = 10
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_ybpuc")])
+
+[sub_resource type="Resource" id="Resource_eaghr"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 0
+hit_type = 1
+cut_direction = 1
+
+[sub_resource type="Resource" id="Resource_mk66v"]
+script = ExtResource("3_nuc7l")
+weight = 10
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_eaghr")])
+
+[sub_resource type="Resource" id="Resource_imycv"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 0
+hit_type = 0
+cut_direction = 1
+
+[sub_resource type="Resource" id="Resource_tvoih"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 0
+hit_type = 1
+cut_direction = 1
+
+[sub_resource type="Resource" id="Resource_mro33"]
+script = ExtResource("3_nuc7l")
+weight = 12
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_imycv"), SubResource("Resource_tvoih")])
+
+[sub_resource type="Resource" id="Resource_fh1ob"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 1
+hit_type = 0
+cut_direction = 2
+
+[sub_resource type="Resource" id="Resource_4jh6q"]
+script = ExtResource("3_nuc7l")
+weight = 10
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_fh1ob")])
+
+[sub_resource type="Resource" id="Resource_iy3w3"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 1
+hit_type = 1
+cut_direction = 3
+
+[sub_resource type="Resource" id="Resource_w25ht"]
+script = ExtResource("3_nuc7l")
+weight = 10
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_iy3w3")])
+
+[sub_resource type="Resource" id="Resource_ast11"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 1
+hit_type = 0
+cut_direction = 2
+
+[sub_resource type="Resource" id="Resource_yhfw8"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 1
+hit_type = 1
+cut_direction = 3
+
+[sub_resource type="Resource" id="Resource_aq5ou"]
+script = ExtResource("3_nuc7l")
+weight = 10
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_ast11"), SubResource("Resource_yhfw8")])
+
+[sub_resource type="Resource" id="Resource_oim3q"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 1
+hit_type = 0
+cut_direction = 2
+
+[sub_resource type="Resource" id="Resource_i46go"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 0
+hit_type = 1
+cut_direction = 2
+
+[sub_resource type="Resource" id="Resource_5gtww"]
+script = ExtResource("3_nuc7l")
+weight = 12
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_oim3q"), SubResource("Resource_i46go")])
+
+[sub_resource type="Resource" id="Resource_qtmj1"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 0
+hit_type = 0
+cut_direction = 3
+
+[sub_resource type="Resource" id="Resource_r1tbg"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 1
+hit_type = 1
+cut_direction = 3
+
+[sub_resource type="Resource" id="Resource_ahqbv"]
+script = ExtResource("3_nuc7l")
+weight = 12
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_qtmj1"), SubResource("Resource_r1tbg")])
+
+[sub_resource type="Resource" id="Resource_x72lx"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 2
+hit_type = 0
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_7oyhl"]
+script = ExtResource("3_nuc7l")
+weight = 8
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_x72lx")])
+
+[sub_resource type="Resource" id="Resource_utlks"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 2
+hit_type = 1
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_kxepe"]
+script = ExtResource("3_nuc7l")
+weight = 8
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_utlks")])
+
+[sub_resource type="Resource" id="Resource_rsrg4"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 2
+hit_type = 0
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_yj8hb"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 2
+hit_type = 1
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_brecm"]
+script = ExtResource("3_nuc7l")
+weight = 10
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_rsrg4"), SubResource("Resource_yj8hb")])
+
+[sub_resource type="Resource" id="Resource_y8e57"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 2
+hit_type = 0
+cut_direction = 4
+
+[sub_resource type="Resource" id="Resource_8pbq5"]
+script = ExtResource("3_nuc7l")
+weight = 6
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_y8e57")])
+
+[sub_resource type="Resource" id="Resource_ahgsi"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 2
+hit_type = 1
+cut_direction = 5
+
+[sub_resource type="Resource" id="Resource_tb3bv"]
+script = ExtResource("3_nuc7l")
+weight = 6
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_ahgsi")])
+
+[sub_resource type="Resource" id="Resource_yamtb"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 1
+hit_type = 0
+cut_direction = 8
+
+[sub_resource type="Resource" id="Resource_vnpqi"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 1
+hit_type = 1
+cut_direction = 8
+
+[sub_resource type="Resource" id="Resource_vmp40"]
+script = ExtResource("3_nuc7l")
+weight = 8
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_yamtb"), SubResource("Resource_vnpqi")])
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_p6tfs")
@@ -102,7 +293,7 @@ enable_passthrough = true
 
 [node name="NoteSpawner" type="Node" parent="."]
 script = ExtResource("2_hafj4")
-note_groups = Array[ExtResource("3_nuc7l")]([SubResource("Resource_nuacx"), SubResource("Resource_0m7em"), SubResource("Resource_mro33"), SubResource("Resource_b76ms")])
+note_groups = Array[ExtResource("3_nuc7l")]([SubResource("Resource_nuacx"), SubResource("Resource_0m7em"), SubResource("Resource_b76ms"), SubResource("Resource_g6wxk"), SubResource("Resource_mk66v"), SubResource("Resource_mro33"), SubResource("Resource_4jh6q"), SubResource("Resource_w25ht"), SubResource("Resource_aq5ou"), SubResource("Resource_5gtww"), SubResource("Resource_ahqbv"), SubResource("Resource_7oyhl"), SubResource("Resource_kxepe"), SubResource("Resource_brecm"), SubResource("Resource_8pbq5"), SubResource("Resource_tb3bv"), SubResource("Resource_vmp40")])
 
 [node name="GameTimer" type="Timer" parent="."]
 process_callback = 0

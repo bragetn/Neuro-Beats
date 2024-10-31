@@ -1,15 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7sa7y7rwhki0"]
+[gd_scene load_steps=6 format=3 uid="uid://b7sa7y7rwhki0"]
 
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="1_7l3y4"]
 [ext_resource type="Script" path="res://scenes/admin/param_panel/param_panel.gd" id="2_0jics"]
-[ext_resource type="FontVariation" uid="uid://cxuq2j0pcbpw1" path="res://ui/resources/fonts/inter/inter-bold.tres" id="4_l1ofr"]
 [ext_resource type="PackedScene" uid="uid://byhjeji762q28" path="res://ui/buttons/main_button/main_button.tscn" id="5_c5d0e"]
 [ext_resource type="PackedScene" uid="uid://dpdnsegsgy2q4" path="res://ui/buttons/secondary_button/secondary_button.tscn" id="5_hrx33"]
 [ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="6_fleot"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_gefco"]
-font = ExtResource("4_l1ofr")
-font_size = 48
-font_color = Color(0, 0, 0, 1)
 
 [node name="ParamPanel" type="Control"]
 layout_mode = 3
@@ -20,6 +15,7 @@ offset_top = -1.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_7l3y4")
 script = ExtResource("2_0jics")
 
 [node name="Navbar" parent="." instance=ExtResource("6_fleot")]
@@ -70,10 +66,8 @@ layout_mode = 2
 
 [node name="TitleLabel" type="Label" parent="Sidebar/MainMargin/MainVBox/TitleMargin"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 52
 text = "PARAM PANEL"
-label_settings = SubResource("LabelSettings_gefco")
 
 [node name="ParamsVBox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox"]
 layout_mode = 2

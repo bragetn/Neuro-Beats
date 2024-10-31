@@ -1,5 +1,7 @@
 extends Node
 
+signal score_grid_updated()
+
 var note_hits: Array[NoteHitData]
 var score_grid: Array[Array]
 
@@ -21,3 +23,5 @@ func register_hit(hit_data: NoteHitData) -> void:
 		score_grid[hit_data.note_data.line_layer][hit_data.note_data.line_index].x += 1
 	else:
 		score_grid[hit_data.note_data.line_layer][hit_data.note_data.line_index].y += 1
+	
+	score_grid_updated.emit()
