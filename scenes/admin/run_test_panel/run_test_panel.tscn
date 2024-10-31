@@ -75,7 +75,7 @@ vertical_alignment = 1
 
 [node name="GoodHitValueLabel" type="Label" parent="Sidebar/MainMargin/MainVBox/HitScoreGrid"]
 layout_mode = 2
-text = "100%"
+text = "0%"
 horizontal_alignment = 2
 vertical_alignment = 1
 

@@ -52,6 +52,7 @@ func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hi
 	
 	if saber_hit_type == data.hit_type:
 		if data.cut_direction == CutDirection.ANY:
+			good = true
 			hit_audio_player.stream = good_hit_audio
 		else:
 			# Check if saber has the correct cut direction
