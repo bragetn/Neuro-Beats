@@ -19,20 +19,29 @@ var velocity: float
 var is_active: bool
 
 
-func setup(note_data: NoteData, note_velocity: float) -> void:
-	update_hit_type(note_data.hit_type)
-	update_cut_direction(note_data.cut_direction)
-	data = note_data
-	velocity = note_velocity
-	is_active = true
+func _ready() -> void:
+	Radio.stop.connect(stop)
 
 
 func _physics_process(delta: float) -> void:
 	if is_active:
 		position.z += velocity * delta
 		
-		if position.z >= 5:
+		if position.z >= 2:
+			save_hit(data, false)
 			queue_free()
+
+
+func stop() -> void:
+	queue_free()
+
+
+func setup(note_data: NoteData, note_velocity: float) -> void:
+	update_hit_type(note_data.hit_type)
+	update_cut_direction(note_data.cut_direction)
+	data = note_data
+	velocity = note_velocity
+	is_active = true
 
 
 func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hit_position: Vector3) -> void:
@@ -64,12 +73,12 @@ func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hi
 	else:
 		hit_audio_player.stream = bad_hit_audio
 	
-	save_hit(data,good)
+	save_hit(data, good)
 	
 	if hit_normal == Vector3.ZERO:
 		hit_normal = Vector3.LEFT
 	
-	# Create
+	# Create note slices
 	create_note_slice(hit_normal, Vector3.ZERO)
 	create_note_slice(-hit_normal, Vector3.ZERO)
 	
@@ -81,13 +90,6 @@ func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hi
 		hit_audio_player.play()
 
 
-func save_hit(note_data: NoteData, good: bool) -> void:
-	var note_hit_data: NoteHitData = NoteHitData.new()
-	note_hit_data.note_data = note_data
-	note_hit_data.hit = good
-	DataManager.register_hit(note_hit_data)
-
-
 func create_note_slice(hit_normal: Vector3, hit_position: Vector3) -> void:
 	var note_slice: NoteSlice = note_slice_scene.instantiate()
 	add_sibling(note_slice)
@@ -95,6 +97,13 @@ func create_note_slice(hit_normal: Vector3, hit_position: Vector3) -> void:
 	note_slice.rotation.z = rotation.z
 	note_slice.linear_velocity.z = velocity
 	note_slice.setup(data, hit_normal, hit_position)
+
+
+func save_hit(note_data: NoteData, good: bool) -> void:
+	var note_hit_data: NoteHitData = NoteHitData.new()
+	note_hit_data.note_data = note_data
+	note_hit_data.hit = good
+	DataManager.register_hit(note_hit_data)
 
 
 func update_hit_type(hit_type) -> void:
