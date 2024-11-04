@@ -103,7 +103,11 @@ layout_mode = 2
 text = "STOP TEST"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, -0.536869, 3, 5)
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 3, 4)
+projection = 2
 fov = 50.0
+size = 2.0
+frustum_offset = Vector2(-0.8, 0)
+near = 2.0
 
 [connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StopTestButton" to="." method="_on_stop_test_button_pressed"]

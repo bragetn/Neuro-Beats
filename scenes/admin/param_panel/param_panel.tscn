@@ -160,8 +160,12 @@ layout_mode = 2
 text = "START TEST"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, -0.536869, 3, 5)
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 3, 4)
+projection = 2
 fov = 50.0
+size = 2.0
+frustum_offset = Vector2(-0.8, 0)
+near = 2.0
 
 [connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/SongSpeedContainer/song_speed_slider" to="." method="_on_song_speed_slider_value_changed"]
 [connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/NoteSpeedContainer/note_speed_slider" to="." method="_on_note_speed_slider_value_changed"]
