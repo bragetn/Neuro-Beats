@@ -6,15 +6,20 @@ var note_hits: Array[NoteHitData]
 var score_grid: Array[Array]
 
 func _ready() -> void:
-	instansiate_score_grid()
+	Radio.start.connect(instansiate_score_grid)
 
 
 func instansiate_score_grid() -> void:
 	for i in range(3):
 		var row = []
-		for j in range(4):       
-			row.append(Vector2i())       
+		for j in range(4):
+			row.append(Vector2i())
 		score_grid.append(row)
+
+
+func reset_data() -> void:
+	note_hits.clear()
+	score_grid.clear()
 
 
 func register_hit(hit_data: NoteHitData) -> void:
