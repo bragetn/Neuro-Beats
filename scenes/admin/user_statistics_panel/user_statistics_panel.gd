@@ -1,78 +1,36 @@
 extends Control
 
-# Specify CSV file
-var file_path: String = "res://data/user_data/test_data.csv"
+var good_hits: int
+var total_hits: int
+var note_hit_array: Array[NoteHitData]
+var accuracy_over_time_array: Array[float]
 
-# Create an empty CSV data
-var data_set: Array = []
-var column_header: Array = []
+@onready var accuracy_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Accuracy
+@onready var total_hits_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TotalHits
+@onready var good_hits_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GoodHits
+@onready var bad_hits_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/BadHits
 
-# Define nodes
-@onready var info_container = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/TestInfo
-@onready var grid_container = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/GridInfo
-@onready var popup_dialog = $DialogContainer/Popup
-
-func _ready():
-	# Get data from CSV file
-	data_set = get_data(file_path)
+func _ready() -> void:
+	good_hits = DataManager.good_hit_counter
+	total_hits = DataManager.note_hits.size()
+	note_hit_array = DataManager.note_hits
 	
-	# Print each CSV row with labels
-	for row in data_set:
-		display_row(row)
+	var accuracy: float = float(good_hits) / float(total_hits)
+	var bad_hits: int = total_hits - good_hits
+
+	accuracy_label.text = str(accuracy * 100).pad_decimals(1) + "%"
+	total_hits_label.text = str(total_hits)
+	good_hits_label.text = str(good_hits)
+	bad_hits_label.text = str(bad_hits)
 
 
-func get_data(path):
-	# Specify CSV file
-	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
-	info_println(" Loading CSV data...")
-	
-	var csv_data: Array = []
-	var line_index: int = -1
-	
-	# Iterate each CSV line into a data set
-	while !file.eof_reached():
-		line_index += 1
-		var line: Array = file.get_csv_line()
-		
-		# Get headers
-		if line_index == 0:
-			column_header = line
-		else:
-			# Append data set
-			csv_data.append(line)
-	
-	file.close()
-	
-	# Remove trailing empty line(s)
-	while csv_data[csv_data.size() - 1][0].is_empty():
-		# Remove last array (empty line)
-		csv_data.pop_back()
-	
-	return csv_data
-
-
-func display_row(row: Array):
-	# Display each column in the row with its header as a label
-	for i in range(column_header.size()):
-		var label_text = column_header[i] + ": " + row[i] 
-		var label = Label.new()
-		label.text = label_text
-		info_container.add_child(label)
-
-
-func info_print(value):
-	info_container.text += str(value) + "\n"
-
-
-func info_println(value):
-	info_container.text += str(value) + "\n"
-	info_container.text += "----------\n"
-
-
-func grid_print(value):
-	grid_container.text += str(value) + "\n"
-
-
-func grid_println(value):
-	grid_container.text += str(value) + "\n"
-	grid_container.text += "----------\n"
+func instansiate_accuracy_over_time() -> void:
+	var good_hit_counter: float = 0
+	var index: float = 0
+	var accuracy: float = 0
+	for note_hit in note_hit_array:
+		index += 1
+		if(note_hit.good_hit):
+			good_hit_counter += 1
+		accuracy = good_hit_counter / index * 100
+		accuracy_over_time_array.append(accuracy)

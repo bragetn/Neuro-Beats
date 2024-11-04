@@ -40,6 +40,18 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://autoloads/": "purple",
+"res://data/": "green",
+"res://entities/": "orange",
+"res://scenes/admin/": "yellow",
+"res://scenes/game/": "red",
+"res://scenes/master/": "blue",
+"res://ui/": "teal"
+}
+
 [xr]
 
 openxr/enabled=true

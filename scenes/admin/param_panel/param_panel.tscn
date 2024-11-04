@@ -167,4 +167,5 @@ fov = 50.0
 [connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/NoteSpeedContainer/note_speed_slider" to="." method="_on_note_speed_slider_value_changed"]
 [connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/BeatTempoContainer/beat_tempo_slider" to="." method="_on_beat_tempo_slider_value_changed"]
 [connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/SpawnDistanceContainer/spawn_distance_slider" to="." method="_on_spawn_distance_slider_value_changed"]
+[connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/NoteControlButton" to="." method="_on_note_control_button_pressed"]
 [connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StartTestButton" to="." method="_on_start_test_button_pressed"]

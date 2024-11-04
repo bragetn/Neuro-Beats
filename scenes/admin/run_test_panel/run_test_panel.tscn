@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="1_wsstg"]
 [ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="2_toube"]
 [ext_resource type="PackedScene" uid="uid://byhjeji762q28" path="res://ui/buttons/main_button/main_button.tscn" id="4_3pmpd"]
-[ext_resource type="PackedScene" uid="uid://6js5lqwn3164" path="res://ui/score_grid/score_grid.tscn" id="4_w6pcn"]
+[ext_resource type="PackedScene" uid="uid://6js5lqwn3164" path="res://ui/score_grid/dynamic/score_grid.tscn" id="4_w6pcn"]
 
 [node name="RunTestPanel" type="Control"]
 layout_mode = 3
