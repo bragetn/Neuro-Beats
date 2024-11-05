@@ -10,11 +10,11 @@ shader_parameter/road_width = 1.9
 shader_parameter/line_width = 0.02
 
 [sub_resource type="BoxMesh" id="BoxMesh_3cf67"]
-size = Vector3(2.05, 0.2, 100)
+size = Vector3(2.025, 0.2, 100)
 
 [node name="NoteRoad" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="RoadMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -50)
 material_override = SubResource("ShaderMaterial_lhxwp")
 mesh = SubResource("BoxMesh_3cf67")
