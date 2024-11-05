@@ -15,7 +15,7 @@ shader_parameter/bpm = 110.0
 shader_parameter/song_speed = 1.0
 shader_parameter/beat_tempo = 2.0
 shader_parameter/note_speed = 3.0
-shader_parameter/spawn_distance = 11.0
+shader_parameter/spawn_distance = 15.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_yl2xg"]
 size = Vector2(2.02, 10)

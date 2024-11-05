@@ -26,7 +26,7 @@ vec3 circle() {
 vec3 triangle() {
 	float w = 0.13;
     float h = -0.05;
-    float r = 0.25 * min(w, h) * 0.5;	
+    float r = 0.25 * min(w, h) * 0.5;
 	vec2 p = local_position.xy - vec2(0.0, 0.08);
 	vec2 q = vec2(w, -h);
     vec2 v = vec2(abs(p.x), p.y);
@@ -36,11 +36,11 @@ vec3 triangle() {
     float d = min(dot(a, a), dot(b, b));
     float s = max(k * (v.x * q.y - v.y * q.x), k * (v.y - q.y));
     float tri = sqrt(d) * sign(s);
-	
+
 	if (min(tri + r * 2.0, 0.0) < 0.0) {
 		return vec3(1.0);
 	}
-	
+
 	return color;
 }
 

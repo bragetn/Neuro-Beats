@@ -12,7 +12,7 @@ uniform float bpm = 110.0;
 uniform float song_speed = 1.0;
 uniform float beat_tempo = 2.0;
 uniform float note_speed = 3.0;
-uniform float spawn_distance = 11.0;
+uniform float spawn_distance = 15.0;
 
 varying vec3 world_position;
 

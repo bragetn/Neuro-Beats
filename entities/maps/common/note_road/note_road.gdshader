@@ -13,7 +13,7 @@ void vertex() {
 }
 
 vec3 grid() {
-	if (local_position.y >= 0.1) {
+	if (local_position.y >= 0.099) {
 		vec3 a = mod(local_position * 2.0, 1.0);
 		if (a.x < line_width || a.x > 1.0 - line_width) {
 			//return a;

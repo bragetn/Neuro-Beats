@@ -68,6 +68,12 @@ func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hi
 			if -hit_vector.y > abs(hit_vector.x):
 				good = true
 				hit_audio_player.stream = good_hit_audio
+			elif hit_vector == Vector3.ZERO:
+				if (randi() % 2 == 0):
+					good = true
+					hit_audio_player.stream = good_hit_audio
+				else:
+					hit_audio_player.stream = bad_hit_audio
 			else:
 				hit_audio_player.stream = bad_hit_audio
 	else:

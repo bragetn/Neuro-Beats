@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://clnn1raxmu4wx"]
+[gd_scene load_steps=4 format=3 uid="uid://clnn1raxmu4wx"]
 
 [ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="1_e5co8"]
 [ext_resource type="Script" path="res://scenes/admin/user_statistics_panel/user_statistics_panel.gd" id="1_kcyrv"]
 [ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="2_va8fm"]
-[ext_resource type="PackedScene" uid="uid://btb3fv00fw8u2" path="res://ui/score_grid/static/score_grid.tscn" id="4_yybeh"]
 
 [node name="UserStatisticsPanel" type="Control"]
 layout_mode = 3
@@ -28,20 +27,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.862745, 0.862745, 0.862745, 0.784314)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.083
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 0.359993
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_va8fm")
 theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 120
+theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
@@ -94,18 +96,31 @@ text = "Bad hits"
 [node name="BadHits" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="StatisticsContainerMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 200
+
+[node name="StatisticsContainerVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin"]
+layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="ScoreGrid" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("4_yybeh")]
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+selected = 0
+item_count = 2
+popup/item_0/text = "Score grid"
+popup/item_1/text = "Accuracy over time"
+popup/item_1/id = 1
+
+[node name="StatisticsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="resized" from="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/StatisticsContainer" to="." method="_on_statistics_container_resized"]
