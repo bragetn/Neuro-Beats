@@ -96,4 +96,5 @@ transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 
 fov = 50.0
 
 [connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StatsButton" to="." method="_on_stats_button_pressed"]
 [connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/ExitButton" to="." method="_on_exit_button_pressed"]

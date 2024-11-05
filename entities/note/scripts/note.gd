@@ -102,7 +102,7 @@ func create_note_slice(hit_normal: Vector3, hit_position: Vector3) -> void:
 func save_hit(note_data: NoteData, good: bool) -> void:
 	var note_hit_data: NoteHitData = NoteHitData.new()
 	note_hit_data.note_data = note_data
-	note_hit_data.hit = good
+	note_hit_data.good_hit = good
 	DataManager.register_hit(note_hit_data)
 
 
