@@ -1,7 +1,7 @@
 shader_type spatial;
-render_mode depth_prepass_alpha, cull_disabled;
+render_mode unshaded, depth_prepass_alpha, cull_disabled;
 
-uniform vec3 grid_color = vec3(1.0, 1.0, 0.0);
+uniform vec3 color = vec3(1.0, 0.0, 0.0);
 
 varying vec3 local_position;
 
@@ -15,7 +15,7 @@ float grid() {
 }
 
 void fragment() {
-	ALBEDO = grid_color;
-	EMISSION = grid_color;
+	ALBEDO = color;
+	EMISSION = color;
 	ALPHA = grid();
 }

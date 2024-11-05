@@ -20,7 +20,7 @@ func setup(game_params: Dictionary) -> void:
 	song_speed = game_params[GameParam.SONG_SPEED]
 	note_speed = game_params[GameParam.NOTE_SPEED]
 	spawn_distance = game_params[GameParam.SPAWN_DISTANCE]
-	note_velocity = ((spawn_distance - 1.5) / ((60.0 / 104.0) * (2**(6 - note_speed)))) * song_speed
+	note_velocity = ((spawn_distance - 1.5) / ((60.0 / 110.0) * (2**(6 - note_speed)))) * song_speed
 	
 	weighted_sum = 0
 	for note_group in note_groups:
