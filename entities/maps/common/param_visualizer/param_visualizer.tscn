@@ -10,7 +10,6 @@ shader_parameter/color = Vector3(1, 0, 0)
 shader_parameter/size = Vector2(2.02, 10)
 shader_parameter/outline_width = 0.1
 shader_parameter/note_width = 0.4
-shader_parameter/delta = 0.0
 shader_parameter/bpm = 110.0
 shader_parameter/song_speed = 1.0
 shader_parameter/beat_tempo = 2.0

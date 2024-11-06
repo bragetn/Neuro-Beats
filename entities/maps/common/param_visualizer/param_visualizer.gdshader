@@ -6,8 +6,6 @@ uniform vec2 size = vec2(2.02, 10.0);
 uniform float outline_width = 0.1;
 uniform float note_width = 0.4;
 
-uniform float delta = 0.0;
-
 uniform float bpm = 110.0;
 uniform float song_speed = 1.0;
 uniform float beat_tempo = 2.0;

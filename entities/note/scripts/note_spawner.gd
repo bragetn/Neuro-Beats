@@ -9,6 +9,7 @@ var note_scene: PackedScene = preload("res://entities/note/scenes/note.tscn")
 
 var weighted_sum: int = 0
 
+var bpm: float = 110
 var song_speed: float = 1
 var note_speed: float = 1
 var spawn_distance: float = 10
@@ -17,10 +18,11 @@ var note_velocity: float = 1
 
 
 func setup(game_params: Dictionary) -> void:
+	bpm = game_params[GameParam.BPM]
 	song_speed = game_params[GameParam.SONG_SPEED]
 	note_speed = game_params[GameParam.NOTE_SPEED]
 	spawn_distance = game_params[GameParam.SPAWN_DISTANCE]
-	note_velocity = ((spawn_distance - 1.5) / ((60.0 / 110.0) * (2**(6 - note_speed)))) * song_speed
+	note_velocity = ((spawn_distance - 1.5) / ((60.0 / bpm) * (2**(6 - note_speed)))) * song_speed
 	
 	weighted_sum = 0
 	for note_group in note_groups:

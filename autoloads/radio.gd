@@ -12,3 +12,7 @@ signal note_hit(hit_type: HitType)
 signal update_game_param(param: GameParam, value)
 
 signal change_ui_scene(path: String)
+
+signal entered_param_panel()
+
+signal exited_param_panel()

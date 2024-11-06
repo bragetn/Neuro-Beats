@@ -1,24 +1,26 @@
 extends Node3D
 class_name Game
 
-const GameParam = Radio.GameParam
+const GameParam = Enums.GameParam
 var game_params: Dictionary = {
 	GameParam.BPM: 110,
 	GameParam.SONG_SPEED: 1,
 	GameParam.BEAT_TEMPO: 2,
 	GameParam.NOTE_SPEED: 4,
-	GameParam.SPAWN_DISTANCE: 10,
+	GameParam.SPAWN_DISTANCE: 15,
 }
 
 @onready var note_spawner: NoteSpawner = $NoteSpawner
 @onready var game_timer: Timer = $GameTimer
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
+@onready var note_roat: NoteRoad = $WorldEnvironment/NoteRoad
 
 
 func _ready() -> void:
 	Radio.start.connect(start)
 	Radio.stop.connect(stop)
 	Radio.update_game_param.connect(update_game_param)
+	note_roat.update(game_params)
 
 
 func start() -> void:
@@ -44,3 +46,4 @@ func _on_game_timer_timeout() -> void:
 
 func update_game_param(game_param: GameParam, value) -> void:
 	game_params[game_param] = value
+	note_roat.update(game_params)
