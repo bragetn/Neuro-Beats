@@ -13,7 +13,6 @@ var y_ticks : int = 11
 
 @export var data = [] 
 
-
 @onready var line : Line2D = $LineContainer/Line
 @onready var line_container : Control = $LineContainer
 @onready var background : ColorRect = $LineContainer/Background
@@ -35,7 +34,6 @@ var line_rect_height : float
 
 var line_rect_x : float
 var line_rect_y : float
-
 
 func _ready():
 	line.clear_points()
@@ -69,6 +67,7 @@ func _ready():
 		
 	max_y = 100
 	min_x = 1
+	
 	# add tick labels to each axis
 	for i in range(x_ticks):
 		var x_tick = Label.new()
@@ -90,12 +89,10 @@ func _ready():
 			y_tick.text = str(data[y_ticks - i - 1]['y'])
 		y_ticks_container.add_child(y_tick)
 	
-	# Wait until the next frame to update layout
 	await get_tree().create_timer(0).timeout
 
-	# shape the line
 	line_rect_width = line_container.size.x
-	line_rect_height = line_container.size.y
+	line_rect_height = line_container.size.y 
 	
 	line_rect_x = line_rect_width / x_ticks
 	line_rect_y = line_rect_height / y_ticks
@@ -103,13 +100,40 @@ func _ready():
 	line_rect_width = line_rect_x * (x_ticks - 1)
 	line_rect_height = line_rect_y * (y_ticks - 1)
 
-	# Debugging: check if scaling values are correct
 	for i in range(len(data)):
 		var scaled_x = scale_x(get_val(data[i]['x'], i))
 		var scaled_y = scale_y(get_val(data[i]['y'], i))
 		
 		line.add_point(Vector2(scaled_x, scaled_y))
 
+	draw_grid_lines()
+
+func draw_grid_lines():
+	# Draw vertical lines for X ticks
+	for i in range(x_ticks):
+		var x_pos = scale_x(i * (max_x - min_x) / (x_ticks - 1) + min_x) 
+		var vertical_line = Line2D.new()
+		vertical_line.width = 1
+		vertical_line.default_color = Color(0.5, 0.5, 0.5, 0.5) 
+		vertical_line.add_point(Vector2(x_pos, 0)) 
+		vertical_line.add_point(Vector2(x_pos, line_container.size.y)) 
+		line_container.add_child(vertical_line)
+
+	# Draw horizontal lines for Y ticks
+	for i in range(y_ticks):
+		
+		var y_val = min_y + (i * (max_y - min_y) / (y_ticks - 1))  
+		var y_pos = scale_y(y_val)  
+
+		var horizontal_line = Line2D.new()
+		horizontal_line.width = 1
+		horizontal_line.default_color = Color(0.5, 0.5, 0.5, 0.5)
+		horizontal_line.add_point(Vector2(0, y_pos)) 
+		horizontal_line.add_point(Vector2(line_container.size.x, y_pos)) 
+		line_container.add_child(horizontal_line)
+
+
+# Scaling functions
 func scale_x(val : float) -> float:
 	var dx = max_x - min_x
 	return ((val - min_x) * line_rect_width / dx) + line_rect_x / 2
@@ -118,6 +142,7 @@ func scale_y(val : float) -> float:
 	var dy = max_y - min_y
 	return line_rect_height - ((val - min_y) * line_rect_height / dy) + line_rect_y / 2
 
+# Get value function
 func get_val(val, idx : int) -> float:
 	if typeof(val) in [TYPE_INT, TYPE_FLOAT]:
 		return float(val)

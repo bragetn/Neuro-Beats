@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx8ofg86dnu77"]
+[gd_scene load_steps=4 format=3 uid="uid://dx8ofg86dnu77"]
 
 [ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="1_xvewn"]
+[ext_resource type="Script" path="res://ui/layouts/navbar.gd" id="2_41yat"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fo4av"]
+bg_color = Color(1, 1, 1, 0)
 
 [node name="Navbar" type="Control"]
 layout_mode = 3
@@ -33,16 +37,22 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="NeuroBeatsTitle" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.262745, 0.262745, 0.262745, 1)
+theme_override_colors/font_hover_color = Color(0.262745, 0.262745, 0.262745, 1)
+theme_override_colors/font_pressed_color = Color(0.262745, 0.262745, 0.262745, 1)
+theme_override_colors/font_focus_color = Color(0.262745, 0.262745, 0.262745, 1)
+theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxFlat_fo4av")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fo4av")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fo4av")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fo4av")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fo4av")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fo4av")
 text = "NeuroBeats"
+script = ExtResource("2_41yat")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="GoBackBtn" type="Button" parent="MarginContainer/MarginContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Go back"
+[connection signal="mouse_entered" from="MarginContainer/MarginContainer/HBoxContainer/Button" to="MarginContainer/MarginContainer/HBoxContainer/Button" method="_on_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/HBoxContainer/Button" to="MarginContainer/MarginContainer/HBoxContainer/Button" method="_on_pressed"]

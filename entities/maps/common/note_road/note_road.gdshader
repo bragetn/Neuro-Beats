@@ -1,6 +1,6 @@
 shader_type spatial;
 
-uniform vec3 base_color = vec3(0.01f);
+uniform vec3 base_color = vec3(0.01);
 uniform float road_width = 1.9;
 uniform float line_width = 0.02;
 

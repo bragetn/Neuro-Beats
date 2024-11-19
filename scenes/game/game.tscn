@@ -4,27 +4,23 @@
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_p6tfs"]
 [ext_resource type="Script" path="res://entities/note/scripts/note_spawner.gd" id="2_hafj4"]
 [ext_resource type="PackedScene" uid="uid://b3wtmxh8rq4v6" path="res://entities/player/player.tscn" id="2_l0gkx"]
+[ext_resource type="Sky" uid="uid://c3ycglbuka5gq" path="res://scenes/game/sky.tres" id="2_rukcg"]
 [ext_resource type="PackedScene" uid="uid://d0b50g3sqry4v" path="res://entities/maps/water_map/realistic_water.tscn" id="2_xcxhj"]
 [ext_resource type="PackedScene" uid="uid://thge0ydknof1" path="res://entities/maps/water_map/platform.tscn" id="3_g4hpm"]
 [ext_resource type="Script" path="res://entities/note/scripts/note_group.gd" id="3_nuc7l"]
 [ext_resource type="PackedScene" uid="uid://dgy13ctdb8a3g" path="res://entities/maps/common/note_road/note_road.tscn" id="4_7n7ou"]
 [ext_resource type="Script" path="res://entities/note/scripts/note_data.gd" id="4_kp8mr"]
+[ext_resource type="PackedScene" uid="uid://d2ayhqiy8xeda" path="res://entities/maps/horizon/horizon.tscn" id="5_nr4vg"]
 [ext_resource type="AudioStream" uid="uid://segagvvmmwkn" path="res://scenes/game/NeuroBeats.mp3" id="6_lblwx"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mykrl"]
-sky_top_color = Color(0.0696006, 0.271274, 0.421728, 1)
-sky_horizon_color = Color(0.740822, 0.508206, 0.410935, 1)
-sky_curve = 0.289781
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_sm072"]
-sky_material = SubResource("ProceduralSkyMaterial_mykrl")
 
 [sub_resource type="Environment" id="Environment_5j4s0"]
 background_mode = 2
-sky = SubResource("Sky_sm072")
+sky = ExtResource("2_rukcg")
+ambient_light_source = 3
 tonemap_mode = 2
 glow_enabled = true
+fog_depth_begin = 90.0
+volumetric_fog_sky_affect = 0.0
 
 [sub_resource type="Resource" id="Resource_0fjs4"]
 script = ExtResource("4_kp8mr")
@@ -290,11 +286,16 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 shadow_enabled = true
 
 [node name="RealisticWater" parent="WorldEnvironment" instance=ExtResource("2_xcxhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Platform" parent="WorldEnvironment" instance=ExtResource("3_g4hpm")]
+transform = Transform3D(1.04, 0, 0, 0, 1.5, 0, 0, 0, 1.04, 0, 0.0285334, 0)
 
 [node name="NoteRoad" parent="WorldEnvironment" instance=ExtResource("4_7n7ou")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Horizon" parent="WorldEnvironment" instance=ExtResource("5_nr4vg")]
+visible = false
 
 [node name="StartXR" parent="." instance=ExtResource("1_k2tfa")]
 enable_passthrough = true

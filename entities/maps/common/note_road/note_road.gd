@@ -20,10 +20,10 @@ func update(game_params: Dictionary) -> void:
 
 
 func show_visualizer() -> void:
-	#spatial_grid.show()
+	spatial_grid.show()
 	param_visualizer.show()
 
 
 func hide_visualizer() -> void:
-	#spatial_grid.hide()
+	spatial_grid.hide()
 	param_visualizer.hide()
