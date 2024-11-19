@@ -5,6 +5,10 @@ const GameParam = Enums.GameParam
 
 func _enter_tree() -> void:
 	Radio.entered_param_panel.emit()
+	Radio.update_game_param.emit(GameParam.SONG_SPEED, 1)
+	Radio.update_game_param.emit(GameParam.BEAT_TEMPO, 2)
+	Radio.update_game_param.emit(GameParam.NOTE_SPEED, 4)
+	Radio.update_game_param.emit(GameParam.SPAWN_DISTANCE, 15)
 
 
 func _exit_tree() -> void:

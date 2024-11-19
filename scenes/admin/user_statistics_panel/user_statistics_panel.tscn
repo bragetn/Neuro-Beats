@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://clnn1raxmu4wx"]
+[gd_scene load_steps=5 format=3 uid="uid://clnn1raxmu4wx"]
 
 [ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="1_e5co8"]
 [ext_resource type="Script" path="res://scenes/admin/user_statistics_panel/user_statistics_panel.gd" id="1_kcyrv"]
 [ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="2_va8fm"]
+[ext_resource type="PackedScene" uid="uid://dpdnsegsgy2q4" path="res://ui/buttons/secondary_button/secondary_button.tscn" id="4_jrus1"]
 
 [node name="UserStatisticsPanel" type="Control"]
 layout_mode = 3
@@ -96,6 +97,17 @@ text = "Bad hits"
 [node name="BadHits" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+
+[node name="SaveFileButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_jrus1")]
+layout_mode = 2
+text = "Save file"
+
+[node name="FeedbackText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="StatisticsContainerMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -122,5 +134,12 @@ popup/item_1/id = 1
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="FileDialog" type="FileDialog" parent="."]
+initial_position = 4
+size = Vector2i(1000, 700)
+access = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SaveFileButton" to="." method="_on_save_file_button_pressed"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="resized" from="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/StatisticsContainer" to="." method="_on_statistics_container_resized"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

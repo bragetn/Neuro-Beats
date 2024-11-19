@@ -10,6 +10,8 @@ var note_hit_array: Array[NoteHitData]
 @onready var bad_hits_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/BadHits
 @onready var statistics_container: MarginContainer = $MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/StatisticsContainer
 @onready var options_button: OptionButton = $MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/OptionButton
+@onready var file_dialog: FileDialog = $FileDialog
+@onready var feedback: Label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/FeedbackText
 
 var line_chart_scene = preload("res://ui/line_chart/LineChart.tscn")
 var score_grid_scene = preload("res://ui/score_grid/static/score_grid.tscn")
@@ -28,6 +30,7 @@ func _ready() -> void:
 	total_hits_label.text = str(total_hits)
 	good_hits_label.text = str(good_hits)
 	bad_hits_label.text = str(bad_hits)
+	feedback.text = ""
 	
 	instansiate_score_grid()
 
@@ -85,3 +88,29 @@ func _on_statistics_container_resized() -> void:
 	if (options_button.selected == 1):
 		clear_statistics_container()
 		instansiate_line_chart()
+
+func save_to_csv(file_path: String) -> void:
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+
+	if file == null:
+		feedback.text = "Failed to save"
+		return
+
+	file.store_line("good_hit,cut_direction,hit_type,line_index,line_layer")
+
+	for note_hit in note_hit_array:
+		var csv_line = str(note_hit.good_hit) + "," + str(note_hit.note_data.cut_direction) + "," + str(note_hit.note_data.hit_type) + "," + str(note_hit.note_data.line_index) + "," + str(note_hit.note_data.line_layer)
+		file.store_line(csv_line)
+
+	file.close()
+	feedback.text = "File saved"
+
+
+func _on_save_file_button_pressed() -> void:
+	file_dialog.filters = ["*.csv"]
+	file_dialog.popup()
+
+
+func _on_file_dialog_file_selected(path: String) -> void:
+	save_to_csv(path)
+	
