@@ -6,8 +6,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0ytu"]
 render_priority = 0
 shader = ExtResource("1_u3x0g")
-shader_parameter/color = Vector3(1, 0, 0)
-shader_parameter/size = Vector2(2.02, 10)
+shader_parameter/color_1 = Vector3(1, 0, 0)
+shader_parameter/color_2 = Vector3(0.1, 0, 0)
 shader_parameter/outline_width = 0.1
 shader_parameter/note_width = 0.4
 shader_parameter/bpm = 110.0
@@ -17,13 +17,13 @@ shader_parameter/note_speed = 3.0
 shader_parameter/spawn_distance = 15.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_yl2xg"]
-size = Vector2(2.02, 10)
+size = Vector2(2.02, 15)
 orientation = 1
 
 [node name="ParamVisualizer" type="Node3D"]
 script = ExtResource("1_scpg4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -7.5)
 material_override = SubResource("ShaderMaterial_k0ytu")
 mesh = SubResource("QuadMesh_yl2xg")

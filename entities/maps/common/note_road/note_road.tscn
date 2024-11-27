@@ -24,7 +24,7 @@ material_override = SubResource("ShaderMaterial_lhxwp")
 mesh = SubResource("BoxMesh_3cf67")
 
 [node name="SpatialGrid" parent="." instance=ExtResource("2_3tjur")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
 visible = false
 
 [node name="ParamVisualizer" parent="." instance=ExtResource("3_0nm5l")]
