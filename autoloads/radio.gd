@@ -16,3 +16,5 @@ signal change_ui_scene(path: String)
 signal entered_param_panel()
 
 signal exited_param_panel()
+
+signal send_game_params(params: Dictionary)

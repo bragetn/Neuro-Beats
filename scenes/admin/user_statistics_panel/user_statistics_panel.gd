@@ -11,7 +11,7 @@ var note_hit_array: Array[NoteHitData]
 @onready var statistics_container: MarginContainer = $MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/StatisticsContainer
 @onready var options_button: OptionButton = $MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/OptionButton
 @onready var file_dialog: FileDialog = $FileDialog
-@onready var feedback: Label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/FeedbackText
+@onready var feedback: Label = $MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/FeedbackText
 
 var line_chart_scene = preload("res://ui/line_chart/LineChart.tscn")
 var score_grid_scene = preload("res://ui/score_grid/static/score_grid.tscn")
@@ -113,4 +113,13 @@ func _on_save_file_button_pressed() -> void:
 
 func _on_file_dialog_file_selected(path: String) -> void:
 	save_to_csv(path)
-	
+
+
+func _on_main_menu_burron_pressed() -> void:
+	DataManager.reset_data()
+	Radio.change_ui_scene.emit("res://scenes/admin/main_menu/main_menu.tscn")
+
+
+func _on_new_test_button_pressed() -> void:
+	DataManager.reset_data()
+	Radio.change_ui_scene.emit("res://scenes/admin/param_panel/param_panel.tscn")

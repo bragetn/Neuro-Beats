@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7sa7y7rwhki0"]
+[gd_scene load_steps=5 format=3 uid="uid://b7sa7y7rwhki0"]
 
 [ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="1_7l3y4"]
 [ext_resource type="Script" path="res://scenes/admin/param_panel/param_panel.gd" id="2_0jics"]
 [ext_resource type="PackedScene" uid="uid://byhjeji762q28" path="res://ui/buttons/main_button/main_button.tscn" id="5_c5d0e"]
-[ext_resource type="PackedScene" uid="uid://dpdnsegsgy2q4" path="res://ui/buttons/secondary_button/secondary_button.tscn" id="5_hrx33"]
 [ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="6_fleot"]
 
 [node name="ParamPanel" type="Control"]
@@ -59,7 +58,7 @@ theme_override_constants/margin_bottom = 60
 
 [node name="MainVBox" type="VBoxContainer" parent="Sidebar/MainMargin"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 140
 
 [node name="TitleMargin" type="MarginContainer" parent="Sidebar/MainMargin/MainVBox"]
 layout_mode = 2
@@ -69,79 +68,78 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 52
 text = "PARAM PANEL"
 
-[node name="ParamsVBox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox"]
+[node name="ParamsVbox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 100
+theme_override_constants/separation = 70
 
-[node name="SongSpeedContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVBox"]
+[node name="SongSpeedContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVbox"]
 layout_mode = 2
-theme_override_constants/separation = 240
 
-[node name="song_speed_label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/SongSpeedContainer"]
+[node name="song_speed_label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/SongSpeedContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
 text = "Song speed
 "
 
-[node name="song_speed_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/SongSpeedContainer"]
+[node name="song_speed_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/SongSpeedContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
 min_value = 0.5
 max_value = 1.5
 step = 0.125
 value = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVBox"]
+[node name="NoteSpeedContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVbox"]
 layout_mode = 2
-theme_override_constants/separation = 50
 
-[node name="NoteSpeedContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 240
-
-[node name="note_speed_label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/NoteSpeedContainer"]
+[node name="note_speed_label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/NoteSpeedContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
 text = "Note speed
 "
 
-[node name="note_speed_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/NoteSpeedContainer"]
+[node name="note_speed_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/NoteSpeedContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
 max_value = 6.0
 value = 3.0
 
-[node name="BeatTempoContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer"]
+[node name="BeatTempoContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVbox"]
 layout_mode = 2
-theme_override_constants/separation = 240
 
-[node name="beat_tempo_ label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/BeatTempoContainer"]
+[node name="beat_tempo_ label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/BeatTempoContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
 text = "Beat tempo
 "
 
-[node name="beat_tempo_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/BeatTempoContainer"]
+[node name="beat_tempo_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/BeatTempoContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
 max_value = 4.0
 value = 2.0
 
-[node name="SpawnDistanceContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer"]
+[node name="SpawnDistanceContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVbox"]
 layout_mode = 2
-theme_override_constants/separation = 210
 
-[node name="spawn_distance_label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/SpawnDistanceContainer"]
+[node name="spawn_distance_label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/SpawnDistanceContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
 text = "Spawn distance
 "
 
-[node name="spawn_distance_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/SpawnDistanceContainer"]
+[node name="spawn_distance_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/SpawnDistanceContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
 min_value = 5.0
 max_value = 25.0
 step = 2.5
@@ -150,10 +148,6 @@ value = 15.0
 [node name="ButtonVBox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox"]
 layout_mode = 2
 theme_override_constants/separation = 30
-
-[node name="NoteControlButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("5_hrx33")]
-layout_mode = 2
-text = "NOTE CONTROL"
 
 [node name="StartTestButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("5_c5d0e")]
 layout_mode = 2
@@ -167,9 +161,8 @@ size = 2.0
 frustum_offset = Vector2(-0.8, 0)
 near = 2.0
 
-[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/SongSpeedContainer/song_speed_slider" to="." method="_on_song_speed_slider_value_changed"]
-[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/NoteSpeedContainer/note_speed_slider" to="." method="_on_note_speed_slider_value_changed"]
-[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/BeatTempoContainer/beat_tempo_slider" to="." method="_on_beat_tempo_slider_value_changed"]
-[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVBox/VBoxContainer/SpawnDistanceContainer/spawn_distance_slider" to="." method="_on_spawn_distance_slider_value_changed"]
-[connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/NoteControlButton" to="." method="_on_note_control_button_pressed"]
+[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVbox/SongSpeedContainer/song_speed_slider" to="." method="_on_song_speed_slider_value_changed"]
+[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVbox/NoteSpeedContainer/note_speed_slider" to="." method="_on_note_speed_slider_value_changed"]
+[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVbox/BeatTempoContainer/beat_tempo_slider" to="." method="_on_beat_tempo_slider_value_changed"]
+[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVbox/SpawnDistanceContainer/spawn_distance_slider" to="." method="_on_spawn_distance_slider_value_changed"]
 [connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StartTestButton" to="." method="_on_start_test_button_pressed"]

@@ -1,5 +1,7 @@
 extends Control
 
+const GameParam = Enums.GameParam
+
 @onready var file_dialog: FileDialog = $FileDialog
 
 func _on_start_button_pressed() -> void:
@@ -18,6 +20,13 @@ func _on_exit_button_pressed() -> void:
 func _on_file_dialog_file_selected(path: String) -> void:
 	load_from_csv(path)
 	Radio.change_ui_scene.emit("res://scenes/admin/user_statistics_panel/user_statistics_panel.tscn")
+
+
+func _enter_tree() -> void:
+	Radio.update_game_param.emit(GameParam.SONG_SPEED, 1)
+	Radio.update_game_param.emit(GameParam.BEAT_TEMPO, 2)
+	Radio.update_game_param.emit(GameParam.NOTE_SPEED, 3)
+	Radio.update_game_param.emit(GameParam.SPAWN_DISTANCE, 15)
 
 
 func load_from_csv(file_path: String) -> void:

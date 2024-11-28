@@ -22,13 +22,13 @@ vec4 get_color() {
 	if (abs(world_position.x) > 0.95) {
 		return vec4(color_1, 1.0);
 	}
-	
+
 	float velocity = ((spawn_distance - 1.5) / ((60.0 / bpm) * pow(2.0, 6.0 - note_speed))) * song_speed;
 	float time_between_notes = (60.0 * pow(2.0, 4.0 - beat_tempo)) / (bpm * song_speed);
 	float line_time = mod(TIME, time_between_notes * ceil(spawn_distance / velocity / time_between_notes));
 	float z_position = spawn_distance - velocity * line_time;
 	float relative_position = mod(world_position.z + z_position, time_between_notes * velocity);
-	
+
 	if (relative_position >= 0.0 && relative_position < note_width) {
 	    return vec4(color_1, 1.0);
 	} else {
