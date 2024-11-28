@@ -13,6 +13,10 @@ func _on_stats_button_pressed() -> void:
 	file_dialog.popup()
 
 
+func _on_credits_button_pressed() -> void:
+	Radio.change_ui_scene.emit("res://scenes/admin/credits_panel/credits_panel.tscn")
+
+
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
 

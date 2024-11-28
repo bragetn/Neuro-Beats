@@ -5,5 +5,5 @@ instance uniform vec3 color = vec3(1, 0, 0);
 
 void fragment() {
 	ALBEDO = color;
-	EMISSION = color * 1.0;
+	EMISSION = color;
 }
