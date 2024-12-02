@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://choxo4xrftp41"]
+[gd_scene load_steps=83 format=3 uid="uid://choxo4xrftp41"]
 
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_k2tfa"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_p6tfs"]
@@ -275,6 +275,178 @@ script = ExtResource("3_nuc7l")
 weight = 8
 notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_yamtb"), SubResource("Resource_vnpqi")])
 
+[sub_resource type="Resource" id="Resource_c2iko"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 1
+hit_type = 0
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_v4oi2"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 1
+hit_type = 1
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_7165v"]
+script = ExtResource("3_nuc7l")
+weight = 6
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_c2iko"), SubResource("Resource_v4oi2")])
+
+[sub_resource type="Resource" id="Resource_kuc30"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 2
+hit_type = 0
+cut_direction = 8
+
+[sub_resource type="Resource" id="Resource_vc3ev"]
+script = ExtResource("3_nuc7l")
+weight = 8
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_kuc30")])
+
+[sub_resource type="Resource" id="Resource_68qks"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 2
+hit_type = 1
+cut_direction = 8
+
+[sub_resource type="Resource" id="Resource_xmcye"]
+script = ExtResource("3_nuc7l")
+weight = 8
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_68qks")])
+
+[sub_resource type="Resource" id="Resource_4ghbk"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 0
+hit_type = 0
+cut_direction = 6
+
+[sub_resource type="Resource" id="Resource_748hh"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 2
+hit_type = 1
+cut_direction = 5
+
+[sub_resource type="Resource" id="Resource_lyx7d"]
+script = ExtResource("3_nuc7l")
+weight = 5
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_4ghbk"), SubResource("Resource_748hh")])
+
+[sub_resource type="Resource" id="Resource_df5h0"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 2
+hit_type = 0
+cut_direction = 4
+
+[sub_resource type="Resource" id="Resource_kmfd6"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 0
+hit_type = 1
+cut_direction = 7
+
+[sub_resource type="Resource" id="Resource_kd3tu"]
+script = ExtResource("3_nuc7l")
+weight = 5
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_df5h0"), SubResource("Resource_kmfd6")])
+
+[sub_resource type="Resource" id="Resource_6u21l"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 2
+hit_type = 0
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_58qah"]
+script = ExtResource("3_nuc7l")
+weight = 7
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_6u21l")])
+
+[sub_resource type="Resource" id="Resource_m4t4y"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 2
+hit_type = 1
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_da048"]
+script = ExtResource("3_nuc7l")
+weight = 7
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_m4t4y")])
+
+[sub_resource type="Resource" id="Resource_wwqti"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 1
+hit_type = 0
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_mmxob"]
+script = ExtResource("3_nuc7l")
+weight = 7
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_wwqti")])
+
+[sub_resource type="Resource" id="Resource_ueaky"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 1
+hit_type = 1
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_jfkte"]
+script = ExtResource("3_nuc7l")
+weight = 7
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_ueaky")])
+
+[sub_resource type="Resource" id="Resource_3h40q"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 2
+hit_type = 0
+cut_direction = 8
+
+[sub_resource type="Resource" id="Resource_607ql"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 2
+hit_type = 1
+cut_direction = 8
+
+[sub_resource type="Resource" id="Resource_a7ray"]
+script = ExtResource("3_nuc7l")
+weight = 1
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_3h40q"), SubResource("Resource_607ql")])
+
+[sub_resource type="Resource" id="Resource_p75oy"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 2
+hit_type = 0
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_adr3q"]
+script = ExtResource("3_nuc7l")
+weight = 1
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_p75oy")])
+
+[sub_resource type="Resource" id="Resource_7ncnq"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 2
+hit_type = 1
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_2a1la"]
+script = ExtResource("3_nuc7l")
+weight = 1
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_7ncnq")])
+
 [node name="Game" type="Node3D"]
 script = ExtResource("1_p6tfs")
 
@@ -301,7 +473,7 @@ enable_passthrough = true
 
 [node name="NoteSpawner" type="Node" parent="."]
 script = ExtResource("2_hafj4")
-note_groups = Array[ExtResource("3_nuc7l")]([SubResource("Resource_nuacx"), SubResource("Resource_0m7em"), SubResource("Resource_b76ms"), SubResource("Resource_g6wxk"), SubResource("Resource_mk66v"), SubResource("Resource_mro33"), SubResource("Resource_4jh6q"), SubResource("Resource_w25ht"), SubResource("Resource_aq5ou"), SubResource("Resource_5gtww"), SubResource("Resource_ahqbv"), SubResource("Resource_7oyhl"), SubResource("Resource_kxepe"), SubResource("Resource_brecm"), SubResource("Resource_8pbq5"), SubResource("Resource_tb3bv"), SubResource("Resource_vmp40")])
+note_groups = Array[ExtResource("3_nuc7l")]([SubResource("Resource_nuacx"), SubResource("Resource_0m7em"), SubResource("Resource_b76ms"), SubResource("Resource_g6wxk"), SubResource("Resource_mk66v"), SubResource("Resource_mro33"), SubResource("Resource_4jh6q"), SubResource("Resource_w25ht"), SubResource("Resource_aq5ou"), SubResource("Resource_5gtww"), SubResource("Resource_ahqbv"), SubResource("Resource_7oyhl"), SubResource("Resource_kxepe"), SubResource("Resource_brecm"), SubResource("Resource_8pbq5"), SubResource("Resource_tb3bv"), SubResource("Resource_vmp40"), SubResource("Resource_7165v"), SubResource("Resource_vc3ev"), SubResource("Resource_xmcye"), SubResource("Resource_lyx7d"), SubResource("Resource_kd3tu"), SubResource("Resource_58qah"), SubResource("Resource_da048"), SubResource("Resource_mmxob"), SubResource("Resource_jfkte"), SubResource("Resource_a7ray"), SubResource("Resource_adr3q"), SubResource("Resource_2a1la")])
 
 [node name="GameTimer" type="Timer" parent="."]
 process_callback = 0
