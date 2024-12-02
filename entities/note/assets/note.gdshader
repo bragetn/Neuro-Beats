@@ -5,6 +5,9 @@ instance uniform bool dot_note = false;
 instance uniform vec3 color = vec3(1.0, 0.0, 0.0);
 instance uniform vec3 plane_normal = vec3(0.0, 1.0, 0.0);
 instance uniform vec3 plane_position = vec3(0.0, -999.0, 0.0);
+instance uniform float t = 0.0;
+
+uniform sampler2D noise_texture;
 
 varying vec3 world_position;
 varying vec3 local_position;
@@ -54,31 +57,42 @@ void fragment() {
 	if (d < 0.0) {
 		ALPHA = 0.0;
 	}
-	else if (d < 0.025){
-		EMISSION = vec3(1.0);
-	}
 	else {
-		if (FRONT_FACING) {
-			if (local_position.z >= 0.0) {
-				vec3 value = color;
-				if (dot_note == true) {
-					value = circle();
-				}
-				else {
-					value = triangle();
-				}
-				ALBEDO = value;
-				EMISSION = value;
-			}
-			else {
-				ALBEDO = color;
-				EMISSION = color;
-			}
-			ROUGHNESS = 0.1;
-			METALLIC = 0.0;
+		if (d < 0.025) {
+			EMISSION = vec3(1.0);
 		}
 		else {
-			ALBEDO = vec3(0.0);
+			if (FRONT_FACING) {
+				if (local_position.z >= 0.0) {
+					vec3 value = color;
+					if (dot_note == true) {
+						value = circle();
+					}
+					else {
+						value = triangle();
+					}
+					ALBEDO = value;
+					EMISSION = value;
+				}
+				else {
+					ALBEDO = color;
+					EMISSION = color;
+				}
+				ROUGHNESS = 0.1;
+				METALLIC = 0.0;
+			}
+			else {
+				ALBEDO = vec3(0.0);
+			}
+			
+			if (t > 0.0) {
+				float noise = texture(noise_texture, UV).r;
+				ALPHA = ceil(noise - t);
+				if (noise - t < 0.025) {
+					ALBEDO = vec3(1.0);
+					EMISSION = vec3(1.0);
+				}
+			}
 		}
 	}
 }

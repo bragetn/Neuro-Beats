@@ -17,6 +17,10 @@ var bad_hit_audio: AudioStream = preload("res://entities/note/audio/bad_hit.tres
 var data: NoteData
 var velocity: float
 var is_active: bool
+var is_miss: bool
+
+var miss_position: float = 0.5
+var fade_distance: float = 2.0
 
 
 func _ready() -> void:
@@ -27,13 +31,24 @@ func _physics_process(delta: float) -> void:
 	if is_active:
 		position.z += velocity * delta
 		
-		if position.z >= 2:
-			save_hit(data, false)
-			queue_free()
+		if position.z > miss_position:
+			note_mesh.set_instance_shader_parameter("t", (position.z - miss_position) / fade_distance)
+			
+			if not is_miss:
+				is_miss = true
+				good_hit_body.collision_layer = 0
+				bad_hit_body.collision_layer = 0
+				save_hit(data, false)
+			
+			if position.z >= miss_position + fade_distance:
+				queue_free()
 
 
 func stop() -> void:
-	queue_free()
+	is_miss = true
+	miss_position = position.z
+	good_hit_body.collision_layer = 0
+	bad_hit_body.collision_layer = 0
 
 
 func setup(note_data: NoteData, note_velocity: float) -> void:
@@ -45,18 +60,14 @@ func setup(note_data: NoteData, note_velocity: float) -> void:
 
 
 func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hit_position: Vector3) -> void:
-	# Stop and hide note
 	is_active = false
 	visible = false
 	
-	# Disable collision with sabers
 	good_hit_body.collision_layer = 0
 	bad_hit_body.collision_layer = 0
 	
-	# Rotate hit_vector to match note
 	hit_vector = hit_vector.rotated(Vector3.FORWARD, rotation.z)
 	
-	# Check if note and saber has the same hit type
 	var good: bool = false
 	
 	if saber_hit_type == data.hit_type:
@@ -64,7 +75,6 @@ func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hi
 			good = true
 			hit_audio_player.stream = good_hit_audio
 		else:
-			# Check if saber has the correct cut direction
 			if -hit_vector.y > abs(hit_vector.x):
 				good = true
 				hit_audio_player.stream = good_hit_audio
@@ -84,11 +94,9 @@ func slice(saber_hit_type: HitType, hit_vector: Vector3, hit_normal: Vector3, hi
 	if hit_normal == Vector3.ZERO:
 		hit_normal = Vector3.LEFT
 	
-	# Create note slices
 	create_note_slice(hit_normal, Vector3.ZERO)
 	create_note_slice(-hit_normal, Vector3.ZERO)
 	
-	# Play hit audio and destroy note instance
 	hit_audio_player.finished.connect(func(): queue_free())
 	if good:
 		hit_audio_player.play(0.18)
