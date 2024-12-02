@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://neqnd4em2nnx"]
 
 [ext_resource type="Script" path="res://entities/saber/saber.gd" id="1_68kcp"]
-[ext_resource type="PackedScene" uid="uid://bceh3h7u2h314" path="res://entities/saber/saber.glb" id="2_wxp06"]
+[ext_resource type="PackedScene" uid="uid://bceh3h7u2h314" path="res://entities/saber/models/saber.glb" id="2_wxp06"]
 [ext_resource type="Shader" path="res://entities/saber/saber.gdshader" id="3_6bd73"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0mr3"]

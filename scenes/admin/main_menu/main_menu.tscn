@@ -70,18 +70,17 @@ theme_override_constants/separation = 45
 
 [node name="StartButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("8_eqqbe")]
 layout_mode = 2
-text = "Start
+text = "START
 "
 
 [node name="StatsButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("8_eqqbe")]
 layout_mode = 2
-text = "Stats
+text = "STATISTICS
 "
 
 [node name="CreditsButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("8_eqqbe")]
 layout_mode = 2
-text = "Credits
-"
+text = "CREDITS"
 
 [node name="MarginContainer" type="MarginContainer" parent="Sidebar/MainMargin/MainVBox/ButtonVBox"]
 layout_mode = 2
@@ -89,7 +88,7 @@ theme_override_constants/margin_top = 50
 
 [node name="ExitButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("4_pb115")]
 layout_mode = 2
-text = "Exit"
+text = "EXIT"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 2.52585, 3, 5)
