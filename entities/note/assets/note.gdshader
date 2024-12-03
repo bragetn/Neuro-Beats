@@ -84,7 +84,7 @@ void fragment() {
 			else {
 				ALBEDO = vec3(0.0);
 			}
-			
+
 			if (t > 0.0) {
 				float noise = texture(noise_texture, UV).r;
 				ALPHA = ceil(noise - t);

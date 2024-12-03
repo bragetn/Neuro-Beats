@@ -98,8 +98,10 @@ fov = 50.0
 title = "Open a File"
 initial_position = 4
 size = Vector2i(1000, 700)
+theme = ExtResource("1_x65kb")
 ok_button_text = "Open"
 file_mode = 0
+access = 2
 
 [connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StatsButton" to="." method="_on_stats_button_pressed"]

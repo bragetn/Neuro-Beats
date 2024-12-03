@@ -153,6 +153,7 @@ layout_mode = 2
 [node name="FileDialog" type="FileDialog" parent="."]
 initial_position = 4
 size = Vector2i(1000, 700)
+theme = ExtResource("2_va8fm")
 access = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ButtonVbox/NewTestButton" to="." method="_on_new_test_button_pressed"]
