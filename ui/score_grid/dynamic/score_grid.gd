@@ -10,7 +10,7 @@ func _ready() -> void:
 	cells = grid_container.get_children()
 
 
-func update():
+func update() -> void:
 	var score_grid = DataManager.score_grid
 	for i in range(3):
 		for j in range(4):
@@ -25,7 +25,7 @@ func update():
 				update_cell_style(cell, value)
 
 
-func update_cell_style(cell: Label, value: float):
+func update_cell_style(cell: Label, value: float) -> void:
 	var gradient_data := {
 		0.0: Color.RED,
 		0.5: Color.YELLOW,

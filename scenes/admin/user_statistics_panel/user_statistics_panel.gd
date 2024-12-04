@@ -13,8 +13,8 @@ var note_hit_array: Array[NoteHitData]
 @onready var file_dialog: FileDialog = $FileDialog
 @onready var feedback: Label = $MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/FeedbackText
 
-var line_chart_scene = preload("res://ui/line_chart/LineChart.tscn")
-var score_grid_scene = preload("res://ui/score_grid/static/score_grid.tscn")
+var line_chart_scene: PackedScene = preload("res://ui/line_chart/LineChart.tscn")
+var score_grid_scene: PackedScene = preload("res://ui/score_grid/static/score_grid.tscn")
 
 
 func _ready() -> void:
@@ -45,7 +45,7 @@ func instansiate_line_chart() -> void:
 	else:
 		line_chart.x_ticks = 20
 	
-	var accuracy_over_time = instansiate_accuracy_over_time()
+	var accuracy_over_time: Array = instansiate_accuracy_over_time()
 	line_chart.data = accuracy_over_time
 	statistics_container.add_child(line_chart)
 
@@ -55,11 +55,11 @@ func instansiate_score_grid() -> void:
 	statistics_container.add_child(score_grid)
 
 
-func instansiate_accuracy_over_time():
+func instansiate_accuracy_over_time() -> Array:
 	var good_hit_counter: float = 0
 	var index: float = 0
 	var accuracy: float = 0
-	var accuracy_over_time_array = []
+	var accuracy_over_time_array: Array = []
 	note_hit_array = DataManager.note_hits
 	for note_hit in note_hit_array:
 		index += 1
@@ -99,7 +99,7 @@ func save_to_csv(file_path: String) -> void:
 	file.store_line("good_hit,cut_direction,hit_type,line_index,line_layer")
 
 	for note_hit in note_hit_array:
-		var csv_line = str(note_hit.good_hit) + "," + str(note_hit.note_data.cut_direction) + "," + str(note_hit.note_data.hit_type) + "," + str(note_hit.note_data.line_index) + "," + str(note_hit.note_data.line_layer)
+		var csv_line: String = str(note_hit.good_hit) + "," + str(note_hit.note_data.cut_direction) + "," + str(note_hit.note_data.hit_type) + "," + str(note_hit.note_data.line_index) + "," + str(note_hit.note_data.line_layer)
 		file.store_line(csv_line)
 
 	file.close()

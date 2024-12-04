@@ -15,7 +15,7 @@ func _on_stop_test_button_pressed() -> void:
 	
 
 
-func score_grid_updated():
+func score_grid_updated() -> void:
 	score_grid.update()
 	
 	var sg = DataManager.score_grid

@@ -27,14 +27,14 @@ func _physics_process(_delta: float) -> void:
 	if result:
 		Radio.note_hit.emit(hit_type)
 		var note: Note = result.collider.get_parent()
-		var hit_vector = end_point.global_position - prev_position
-		var hit_normal = hit_vector.cross(end_point.global_position - start_point.global_position).normalized()
+		var hit_vector: Vector3 = end_point.global_position - prev_position
+		var hit_normal: Vector3 = hit_vector.cross(end_point.global_position - start_point.global_position).normalized()
 		note.slice(hit_type, hit_vector, hit_normal, result.position)
 	
 	prev_position = end_point.global_position
 
 
-func update_hit_type():
+func update_hit_type() -> void:
 	var color: Color
 	if hit_type == HitType.LEFT:
 		color = Color(1, 0, 0)

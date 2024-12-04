@@ -1,41 +1,41 @@
 extends GridContainer
 class_name LineChart
 
-@export var line_width : float = 5.0
-@export var line_color : Color
-@export var bg_color : Color
+@export var line_width: float = 5.0
+@export var line_color: Color
+@export var bg_color: Color
 
-@export var x_label : String = ""
-@export var y_label : String = ""
+@export var x_label: String = ""
+@export var y_label: String = ""
 
-@export var x_ticks : int = 20
-var y_ticks : int = 11
+@export var x_ticks: int = 20
+var y_ticks: int = 11
 
-@export var data = [] 
+@export var data: Array = [] 
 
-@onready var line : Line2D = $LineContainer/Line
-@onready var line_container : Control = $LineContainer
-@onready var background : ColorRect = $LineContainer/Background
-@onready var x_label_element : Label = $XLabel
-@onready var y_label_element : Label = $YLabel
-@onready var x_ticks_container : Control = $XTicksContainer
-@onready var y_ticks_container : Control = $YTicksContainer
+@onready var line: Line2D = $LineContainer/Line
+@onready var line_container: Control = $LineContainer
+@onready var background: ColorRect = $LineContainer/Background
+@onready var x_label_element: Label = $XLabel
+@onready var y_label_element: Label = $YLabel
+@onready var x_ticks_container: Control = $XTicksContainer
+@onready var y_ticks_container: Control = $YTicksContainer
 
-var x_numerical : bool = true
-var y_numerical : bool = true
+var x_numerical: bool = true
+var y_numerical: bool = true
 
-var min_x : float
-var min_y : float
-var max_x : float
-var max_y : float
+var min_x: float
+var min_y: float
+var max_x: float
+var max_y: float
 
-var line_rect_width : float
-var line_rect_height : float
+var line_rect_width: float
+var line_rect_height: float
 
-var line_rect_x : float
-var line_rect_y : float
+var line_rect_x: float
+var line_rect_y: float
 
-func _ready():
+func _ready() -> void:
 	line.clear_points()
 	line.default_color = line_color
 	line.width = line_width
@@ -44,14 +44,12 @@ func _ready():
 	y_label_element.text = y_label
 	background.color = bg_color
 	
-	# check if values are numerical
 	for val in data:
 		if not [TYPE_INT, TYPE_FLOAT].has(typeof(val['x'])):
 			x_numerical = false
 		if not [TYPE_INT, TYPE_FLOAT].has(typeof(val['y'])):
 			y_numerical = false
 		
-	# get min and max values (use index if value isn't a number, e.g. weekdays)
 	for i in range(len(data)):
 		var x_val = get_val(data[i]['x'], i)
 		var y_val = get_val(data[i]['y'], i)
@@ -68,7 +66,6 @@ func _ready():
 	max_y = 100
 	min_x = 1
 	
-	# add tick labels to each axis
 	for i in range(x_ticks):
 		var x_tick = Label.new()
 		x_tick.size_flags_horizontal = SIZE_EXPAND_FILL
@@ -108,8 +105,7 @@ func _ready():
 
 	draw_grid_lines()
 
-func draw_grid_lines():
-	# Draw vertical lines for X ticks
+func draw_grid_lines() -> void:
 	for i in range(x_ticks):
 		var x_pos = scale_x(i * (max_x - min_x) / (x_ticks - 1) + min_x) 
 		var vertical_line = Line2D.new()
@@ -119,7 +115,6 @@ func draw_grid_lines():
 		vertical_line.add_point(Vector2(x_pos, line_container.size.y)) 
 		line_container.add_child(vertical_line)
 
-	# Draw horizontal lines for Y ticks
 	for i in range(y_ticks):
 		
 		var y_val = min_y + (i * (max_y - min_y) / (y_ticks - 1))  
@@ -133,7 +128,6 @@ func draw_grid_lines():
 		line_container.add_child(horizontal_line)
 
 
-# Scaling functions
 func scale_x(val : float) -> float:
 	var dx = max_x - min_x
 	return ((val - min_x) * line_rect_width / dx) + line_rect_x / 2
@@ -142,7 +136,6 @@ func scale_y(val : float) -> float:
 	var dy = max_y - min_y
 	return line_rect_height - ((val - min_y) * line_rect_height / dy) + line_rect_y / 2
 
-# Get value function
 func get_val(val, idx : int) -> float:
 	if typeof(val) in [TYPE_INT, TYPE_FLOAT]:
 		return float(val)

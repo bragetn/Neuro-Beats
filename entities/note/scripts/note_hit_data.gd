@@ -3,4 +3,3 @@ class_name NoteHitData
 
 @export var note_data: NoteData = NoteData.new()
 @export var good_hit: bool = false
-@export var time: float = 0

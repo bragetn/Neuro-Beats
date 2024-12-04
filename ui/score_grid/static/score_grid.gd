@@ -10,7 +10,7 @@ func _ready() -> void:
 	update()
 
 
-func update():
+func update() -> void:
 	var score_grid = DataManager.score_grid
 	for i in range(3):
 		for j in range(4):
@@ -26,7 +26,7 @@ func update():
 				cell.score = str(score.x) + " / " + str(score.x + score.y)
 				update_cell_style(cell, value)
 
-func update_cell_style(cell, value: float):
+func update_cell_style(cell, value: float) -> void:
 	var gradient_data := {
 		0.0: Color.RED,
 		0.5: Color.YELLOW,

@@ -20,7 +20,7 @@ func _on_start_xr_xr_ended() -> void:
 	xr_active = false
 
 
-func note_hit(hit_type: HitType):
+func note_hit(hit_type: HitType) -> void:
 	if xr_active:
 		if hit_type == HitType.LEFT:
 			left_rumbler.rumble()

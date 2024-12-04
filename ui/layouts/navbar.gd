@@ -2,7 +2,7 @@ extends Control
 class_name Navbar
 
 @onready var main_menu_button = $MarginContainer/HBoxContainer/MainMenuButton
-@onready var padding = $MarginContainer/HBoxContainer/Padding
+@onready var padding: Label = $MarginContainer/HBoxContainer/Padding
 
 func _on_main_menu_button_pressed() -> void:
 	DataManager.reset_data()

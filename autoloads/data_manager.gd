@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func instansiate_score_grid() -> void:
 	for i in range(3):
-		var row = []
+		var row: Array = []
 		for j in range(4):
 			row.append(Vector2i())
 		score_grid.append(row)

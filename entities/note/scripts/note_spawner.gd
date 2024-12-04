@@ -32,7 +32,7 @@ func setup(game_params: Dictionary) -> void:
 
 
 func spawn() -> void:
-	var note_group = get_random_note_group()
+	var note_group: NoteGroup = get_random_note_group()
 	for note_data in note_group.notes:
 		instantiate_note(note_data)
 
@@ -45,7 +45,7 @@ func instantiate_note(note_data) -> void:
 
 
 func get_random_note_group() -> NoteGroup:
-	var random = randi_range(0, weighted_sum - 1)
+	var random: int = randi_range(0, weighted_sum - 1)
 	for note_group in note_groups:
 		if random < note_group.weight:
 			return note_group

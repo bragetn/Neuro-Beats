@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://choxo4xrftp41"]
+[gd_scene load_steps=82 format=3 uid="uid://choxo4xrftp41"]
 
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_k2tfa"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_p6tfs"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://entities/note/scripts/note_group.gd" id="3_nuc7l"]
 [ext_resource type="PackedScene" uid="uid://dgy13ctdb8a3g" path="res://entities/maps/common/note_road/note_road.tscn" id="4_7n7ou"]
 [ext_resource type="Script" path="res://entities/note/scripts/note_data.gd" id="4_kp8mr"]
-[ext_resource type="PackedScene" uid="uid://d2ayhqiy8xeda" path="res://entities/maps/horizon/horizon.tscn" id="5_nr4vg"]
 [ext_resource type="AudioStream" uid="uid://segagvvmmwkn" path="res://scenes/game/NeuroBeats.mp3" id="6_lblwx"]
 
 [sub_resource type="Environment" id="Environment_5j4s0"]
@@ -464,9 +463,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(1.04, 0, 0, 0, 1.5, 0, 0, 0, 1.04, 0, 0.0285334, 0)
 
 [node name="NoteRoad" parent="WorldEnvironment" instance=ExtResource("4_7n7ou")]
-
-[node name="Horizon" parent="WorldEnvironment" instance=ExtResource("5_nr4vg")]
-visible = false
 
 [node name="StartXR" parent="." instance=ExtResource("1_k2tfa")]
 enable_passthrough = true

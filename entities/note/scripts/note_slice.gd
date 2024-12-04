@@ -16,7 +16,7 @@ func setup(note_data: NoteData, hit_normal: Vector3, plane_position: Vector3) ->
 	else:
 		color = Color(0, 0, 1)
 	
-	var plane_normal = hit_normal.rotated(Vector3.FORWARD, rotation.z)
+	var plane_normal: Vector3 = hit_normal.rotated(Vector3.FORWARD, rotation.z)
 	
 	if note_data.cut_direction == CutDirection.ANY:
 		note_mesh.set_instance_shader_parameter("dot_note", true)
