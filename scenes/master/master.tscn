@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/master/master.gd" id="1_bwd8r"]
 [ext_resource type="PackedScene" uid="uid://choxo4xrftp41" path="res://scenes/game/game.tscn" id="1_cneql"]
-[ext_resource type="PackedScene" uid="uid://b7sa7y7rwhki0" path="res://scenes/admin/admin.tscn" id="3_4j6pi"]
+[ext_resource type="PackedScene" uid="uid://365l3vokhaf7" path="res://scenes/admin/main_menu/main_menu.tscn" id="3_5xkyx"]
 
 [node name="Master" type="Node"]
 script = ExtResource("1_bwd8r")
@@ -13,8 +13,11 @@ script = ExtResource("1_bwd8r")
 mode = 2
 title = "Admin"
 initial_position = 1
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1080)
+content_scale_size = Vector2i(1920, 1080)
+content_scale_mode = 1
+content_scale_aspect = 4
 
-[node name="Admin" parent="AdminWindow" instance=ExtResource("3_4j6pi")]
+[node name="MainMenu" parent="AdminWindow" instance=ExtResource("3_5xkyx")]
 
 [connection signal="close_requested" from="AdminWindow" to="." method="_on_admin_window_close_requested"]

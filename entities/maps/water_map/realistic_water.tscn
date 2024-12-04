@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0b50g3sqry4v"]
+
+[ext_resource type="Material" uid="uid://qry4wtxhiyw5" path="res://entities/maps/water_map/realistic_water_material.tres" id="1_7ymp6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_exwen"]
+material = ExtResource("1_7ymp6")
+size = Vector3(100, 10, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kjsue"]
+material = ExtResource("1_7ymp6")
+size = Vector2(100000, 100000)
+
+[node name="RealisticWater" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8147e-06, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.001, -50.6559, -0.002)
+visible = false
+mesh = SubResource("BoxMesh_exwen")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("PlaneMesh_kjsue")

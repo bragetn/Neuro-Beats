@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpdnsegsgy2q4"]
+
+[ext_resource type="FontVariation" uid="uid://cxuq2j0pcbpw1" path="res://ui/resources/fonts/inter/inter-bold.tres" id="1_o08wo"]
+[ext_resource type="StyleBox" uid="uid://dejw1xsib4ohc" path="res://ui/buttons/secondary_button/stylebox_normal.tres" id="1_tuoky"]
+[ext_resource type="StyleBox" uid="uid://thso4sg1an6h" path="res://ui/buttons/secondary_button/stylebox_hover.tres" id="2_vymt4"]
+[ext_resource type="StyleBox" uid="uid://mc20tntbvg64" path="res://ui/buttons/secondary_button/stylebox_pressed.tres" id="3_drbf0"]
+[ext_resource type="Script" path="res://ui/buttons/secondary_button/secondary_button.gd" id="4_6pay7"]
+
+[node name="SecondaryButton" type="Button"]
+custom_minimum_size = Vector2(120, 120)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_o08wo")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = ExtResource("2_vymt4")
+theme_override_styles/pressed = ExtResource("3_drbf0")
+theme_override_styles/normal = ExtResource("1_tuoky")
+script = ExtResource("4_6pay7")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

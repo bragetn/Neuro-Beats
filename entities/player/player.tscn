@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3wtmxh8rq4v6"]
+
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_0epav"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="1_kb4se"]
+[ext_resource type="ArrayMesh" uid="uid://dv107fmk50iwf" path="res://entities/player/head.obj" id="1_p7oh7"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/rumble/rumble_event.gd" id="2_wjobm"]
+[ext_resource type="PackedScene" uid="uid://be4lmgqynmkub" path="res://entities/player/quest_3.tscn" id="3_qc8sb"]
+[ext_resource type="PackedScene" uid="uid://neqnd4em2nnx" path="res://entities/saber/saber.tscn" id="4_bnqd3"]
+
+[sub_resource type="Resource" id="Resource_epmv4"]
+script = ExtResource("2_wjobm")
+magnitude = 0.8
+active_during_pause = false
+indefinite = false
+duration_ms = 50
+
+[sub_resource type="Resource" id="Resource_812dx"]
+script = ExtResource("2_wjobm")
+magnitude = 0.8
+active_during_pause = false
+indefinite = false
+duration_ms = 50
+
+[node name="Player" type="XROrigin3D"]
+script = ExtResource("1_0epav")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+cull_mask = 1048559
+
+[node name="Head" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+tracker = &"head"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head"]
+transform = Transform3D(-0.25, 0, -2.18557e-08, 0, 0.25, 0, 2.18557e-08, 0, -0.25, 0, -0.0568159, 0)
+visible = false
+layers = 16
+mesh = ExtResource("1_p7oh7")
+
+[node name="Quest3" parent="Head" instance=ExtResource("3_qc8sb")]
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 0, 0.0226219, 0)
+
+[node name="LeftHand" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+
+[node name="LeftRumbler" type="Node" parent="LeftHand" node_paths=PackedStringArray("target")]
+script = ExtResource("1_kb4se")
+event = SubResource("Resource_epmv4")
+target = NodePath("..")
+
+[node name="Saber" parent="LeftHand" instance=ExtResource("4_bnqd3")]
+transform = Transform3D(0.11, 0, 0, 0, 0.0952628, -0.055, 0, 0.055, 0.0952628, 0, -0.047, 0.157)
+hit_type = 0
+
+[node name="RightHand" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+
+[node name="RightRumbler" type="Node" parent="RightHand" node_paths=PackedStringArray("target")]
+script = ExtResource("1_kb4se")
+event = SubResource("Resource_812dx")
+target = NodePath("..")
+
+[node name="Saber" parent="RightHand" instance=ExtResource("4_bnqd3")]
+transform = Transform3D(0.11, 0, 0, 0, 0.0952628, -0.055, 0, 0.055, 0.0952628, 0, -0.047, 0.157)

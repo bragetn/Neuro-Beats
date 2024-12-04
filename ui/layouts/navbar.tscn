@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx8ofg86dnu77"]
+
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="1_xvewn"]
+[ext_resource type="Script" path="res://ui/layouts/navbar.gd" id="2_41yat"]
+[ext_resource type="Texture2D" uid="uid://dfmd7aalr7i7t" path="res://ui/resources/back.svg" id="3_2wv1r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fo4av"]
+bg_color = Color(1, 1, 1, 0)
+
+[node name="Navbar" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.083
+offset_bottom = 0.359993
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xvewn")
+script = ExtResource("2_41yat")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.862745, 0.862745, 0.862745, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/icon_max_width = 50
+icon = ExtResource("3_2wv1r")
+flat = true
+
+[node name="NeuroBeatsButton" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_fo4av")
+text = "NeuroBeats"
+
+[node name="Padding" type="Label" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

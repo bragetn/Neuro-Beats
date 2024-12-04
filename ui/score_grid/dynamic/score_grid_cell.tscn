@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjgqdsmup18ry"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y2jh"]
+bg_color = Color(0.831761, 0.831761, 0.831761, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_s783c"]
+font_size = 24
+font_color = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="ScoreGridCell" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_8y2jh")
+label_settings = SubResource("LabelSettings_s783c")
+horizontal_alignment = 1
+vertical_alignment = 1

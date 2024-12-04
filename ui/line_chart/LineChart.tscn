@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs0jidycg2gh0"]
+
+[ext_resource type="Script" path="res://ui/line_chart/line_chart.gd" id="1_pf3le"]
+
+[node name="LineChart" type="GridContainer"]
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_right = -0.160034
+size_flags_vertical = 3
+columns = 3
+script = ExtResource("1_pf3le")
+line_color = Color(0.708189, 2.64719e-06, 5.77569e-07, 1)
+bg_color = Color(1, 1, 1, 1)
+x_label = "Note number"
+data = [{
+"x": 0,
+"y": 7.0
+}, {
+"x": 1,
+"y": 7.0
+}, {
+"x": 2,
+"y": 8.0
+}, {
+"x": 3,
+"y": 3.0
+}, {
+"x": 4,
+"y": 5.0
+}, {
+"x": 5,
+"y": 4.0
+}, {
+"x": 6,
+"y": 6.0
+}, {
+"x": 7,
+"y": 1.0
+}, {
+"x": 8,
+"y": 1.0
+}]
+
+[node name="YLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Accuracy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YTicksContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="LineContainer" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="ColorRect" parent="LineContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line" type="Line2D" parent="LineContainer"]
+z_index = 1
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+default_color = Color(0.708189, 2.64719e-06, 5.77569e-07, 1)
+
+[node name="Placeholder" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Placeholder2" type="Control" parent="."]
+layout_mode = 2
+
+[node name="XTicksContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Placeholder3" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Placeholder4" type="Control" parent="."]
+layout_mode = 2
+
+[node name="XLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Note number"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,172 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7sa7y7rwhki0"]
+
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="1_7l3y4"]
+[ext_resource type="Script" path="res://scenes/admin/param_panel/param_panel.gd" id="2_0jics"]
+[ext_resource type="PackedScene" uid="uid://byhjeji762q28" path="res://ui/buttons/main_button/main_button.tscn" id="5_c5d0e"]
+[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="6_fleot"]
+
+[node name="ParamPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7l3y4")
+script = ExtResource("2_0jics")
+
+[node name="Navbar" parent="." instance=ExtResource("6_fleot")]
+layout_mode = 1
+anchor_top = 0.001
+anchor_bottom = 0.084
+offset_top = -0.08
+offset_bottom = 0.279991
+
+[node name="Sidebar" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.409
+anchor_bottom = 1.001
+offset_top = 91.0
+offset_right = 0.719971
+offset_bottom = -0.0800781
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.862745, 0.862745, 0.862745, 0.784314)
+
+[node name="MainMargin" type="MarginContainer" parent="Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="MainVBox" type="VBoxContainer" parent="Sidebar/MainMargin"]
+layout_mode = 2
+theme_override_constants/separation = 140
+
+[node name="TitleMargin" type="MarginContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Sidebar/MainMargin/MainVBox/TitleMargin"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "PARAM PANEL"
+
+[node name="ParamsVbox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="SongSpeedContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVbox"]
+layout_mode = 2
+
+[node name="song_speed_label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/SongSpeedContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
+text = "Song speed
+"
+
+[node name="song_speed_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/SongSpeedContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+min_value = 0.5
+max_value = 1.5
+step = 0.125
+value = 1.0
+
+[node name="NoteSpeedContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVbox"]
+layout_mode = 2
+
+[node name="note_speed_label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/NoteSpeedContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
+text = "Note speed
+"
+
+[node name="note_speed_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/NoteSpeedContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+max_value = 6.0
+value = 3.0
+
+[node name="BeatTempoContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVbox"]
+layout_mode = 2
+
+[node name="beat_tempo_ label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/BeatTempoContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
+text = "Beat tempo
+"
+
+[node name="beat_tempo_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/BeatTempoContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+max_value = 4.0
+value = 2.0
+
+[node name="SpawnDistanceContainer" type="HBoxContainer" parent="Sidebar/MainMargin/MainVBox/ParamsVbox"]
+layout_mode = 2
+
+[node name="spawn_distance_label" type="Label" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/SpawnDistanceContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.262745, 0.262745, 0.262745, 1)
+text = "Spawn distance
+"
+
+[node name="spawn_distance_slider" type="HSlider" parent="Sidebar/MainMargin/MainVBox/ParamsVbox/SpawnDistanceContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+min_value = 5.0
+max_value = 25.0
+step = 2.5
+value = 15.0
+
+[node name="ButtonVBox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="StartTestButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("5_c5d0e")]
+layout_mode = 2
+text = "START TEST"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 3, 4)
+projection = 2
+fov = 50.0
+size = 2.0
+frustum_offset = Vector2(-0.8, 0)
+near = 2.0
+
+[connection signal="mouse_entered" from="Sidebar/MainMargin/MainVBox/ParamsVbox/SongSpeedContainer/song_speed_slider" to="." method="_on_song_speed_slider_mouse_entered"]
+[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVbox/SongSpeedContainer/song_speed_slider" to="." method="_on_song_speed_slider_value_changed"]
+[connection signal="mouse_entered" from="Sidebar/MainMargin/MainVBox/ParamsVbox/NoteSpeedContainer/note_speed_slider" to="." method="_on_note_speed_slider_mouse_entered"]
+[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVbox/NoteSpeedContainer/note_speed_slider" to="." method="_on_note_speed_slider_value_changed"]
+[connection signal="mouse_entered" from="Sidebar/MainMargin/MainVBox/ParamsVbox/BeatTempoContainer/beat_tempo_slider" to="." method="_on_beat_tempo_slider_mouse_entered"]
+[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVbox/BeatTempoContainer/beat_tempo_slider" to="." method="_on_beat_tempo_slider_value_changed"]
+[connection signal="mouse_entered" from="Sidebar/MainMargin/MainVBox/ParamsVbox/SpawnDistanceContainer/spawn_distance_slider" to="." method="_on_spawn_distance_slider_mouse_entered"]
+[connection signal="value_changed" from="Sidebar/MainMargin/MainVBox/ParamsVbox/SpawnDistanceContainer/spawn_distance_slider" to="." method="_on_spawn_distance_slider_value_changed"]
+[connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StartTestButton" to="." method="_on_start_test_button_pressed"]

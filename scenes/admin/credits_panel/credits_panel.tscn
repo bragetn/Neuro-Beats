@@ -1,0 +1,160 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb05ssjr4pbpv"]
+
+[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="1_4ojyj"]
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="1_sj7b5"]
+[ext_resource type="Script" path="res://scenes/admin/credits_panel/credits_panel.gd" id="2_a0sdd"]
+[ext_resource type="PackedScene" uid="uid://dpdnsegsgy2q4" path="res://ui/buttons/secondary_button/secondary_button.tscn" id="3_oybl8"]
+
+[node name="CreditsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sj7b5")
+script = ExtResource("2_a0sdd")
+
+[node name="Navbar" parent="." instance=ExtResource("1_4ojyj")]
+layout_mode = 1
+
+[node name="Sidebar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.862745, 0.862745, 0.862745, 0.784314)
+
+[node name="MainMargin" type="MarginContainer" parent="Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 464.0
+offset_right = -456.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="MainVBox" type="VBoxContainer" parent="Sidebar/MainMargin"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="TitleMargin" type="MarginContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Sidebar/MainMargin/MainVBox/TitleMargin"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="ContentVBox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 45
+
+[node name="CreditsScroll" type="ScrollContainer" parent="Sidebar/MainMargin/MainVBox/ContentVBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="CreditsVBox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox/ContentVBox/CreditsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 85
+
+[node name="Label" type="Label" parent="Sidebar/MainMargin/MainVBox/ContentVBox/CreditsScroll/CreditsVBox"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Komboprosjekt:
+- IDATT2505 Extended Reality
+- IDATT2501 Fordypningsprosjekt
+
+Laget av:
+- Brage Tiller Naustand
+- Markus Evald Dalbakk
+- Madeleine Stenberg Jonassen
+
+Veileder:
+- Alexander Holt"
+
+[node name="Godot Lisense" type="Label" parent="Sidebar/MainMargin/MainVBox/ContentVBox/CreditsScroll/CreditsVBox"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "This game uses Godot Engine, available under the following license:
+
+Copyright (c) 2014-present Godot Engine contributors.
+Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE."
+autowrap_mode = 2
+
+[node name="XRTools Lisense" type="Label" parent="Sidebar/MainMargin/MainVBox/ContentVBox/CreditsScroll/CreditsVBox"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "This game uses the Godot XR Tools plugin, available under the following license:
+
+Copyright (c) 2018-2023 Bastiaan Olij and Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE."
+autowrap_mode = 2
+
+[node name="MenuButton" parent="Sidebar/MainMargin/MainVBox/ContentVBox" instance=ExtResource("3_oybl8")]
+layout_mode = 2
+text = "MAIN MENU"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 2.52585, 3, 5)
+fov = 50.0
+
+[connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ContentVBox/MenuButton" to="." method="_on_menu_button_pressed"]

@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=3 uid="uid://btb3fv00fw8u2"]
+
+[ext_resource type="PackedScene" uid="uid://c8cosrtk00y1m" path="res://ui/score_grid/static/score_grid_cell.tscn" id="1_y7mpo"]
+[ext_resource type="Script" path="res://ui/score_grid/static/score_grid.gd" id="2_40w24"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kod5s"]
+bg_color = Color(0.462745, 0.462745, 0.462745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="ScoreGrid" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_40w24")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kod5s")
+
+[node name="GridMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="GridMargin"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="C1" parent="GridMargin/GridContainer" instance=ExtResource("1_y7mpo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+percent = "Percent"
+score = "Scoref"
+
+[node name="C2" parent="GridMargin/GridContainer" instance=ExtResource("1_y7mpo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+percent = "Percentdddd"
+
+[node name="C3" parent="GridMargin/GridContainer" instance=ExtResource("1_y7mpo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="C4" parent="GridMargin/GridContainer" instance=ExtResource("1_y7mpo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+percent = "Percentddffdd"
+
+[node name="B1" parent="GridMargin/GridContainer" instance=ExtResource("1_y7mpo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="B2" parent="GridMargin/GridContainer" instance=ExtResource("1_y7mpo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="B3" parent="GridMargin/GridContainer" instance=ExtResource("1_y7mpo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="B4" parent="GridMargin/GridContainer" instance=ExtResource("1_y7mpo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="A1" parent="GridMargin/GridContainer" instance=ExtResource("1_y7mpo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="A2" parent="GridMargin/GridContainer" instance=ExtResource("1_y7mpo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="A3" parent="GridMargin/GridContainer" instance=ExtResource("1_y7mpo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="A4" parent="GridMargin/GridContainer" instance=ExtResource("1_y7mpo")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

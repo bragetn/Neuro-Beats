@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2xqsvcptvxht"]
+
+[ext_resource type="Script" path="res://entities/note/scripts/note_slice.gd" id="1_0nbhl"]
+[ext_resource type="Shader" path="res://entities/note/assets/note.gdshader" id="1_i04pb"]
+[ext_resource type="ArrayMesh" uid="uid://x8qipyt35qcy" path="res://entities/note/assets/note.obj" id="2_ln7if"]
+[ext_resource type="Texture2D" uid="uid://cx2gnol42lt7c" path="res://entities/note/assets/noise.png" id="3_raxfu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6qnj2"]
+render_priority = 0
+shader = ExtResource("1_i04pb")
+shader_parameter/noise_texture = ExtResource("3_raxfu")
+
+[node name="NoteSlice" type="RigidBody3D"]
+script = ExtResource("1_0nbhl")
+
+[node name="NoteMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_6qnj2")
+mesh = ExtResource("2_ln7if")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
+depth = 0.4
+disabled = true
+polygon = PackedVector2Array(-0.2, -0.2, 0.2, -0.2, 0.2, 0.2, -0.2, 0.2)

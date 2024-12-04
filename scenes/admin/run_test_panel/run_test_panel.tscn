@@ -1,0 +1,113 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmjpy1ley8qxh"]
+
+[ext_resource type="Script" path="res://scenes/admin/run_test_panel/run_test_panel.gd" id="1_blltw"]
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="1_wsstg"]
+[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="2_toube"]
+[ext_resource type="PackedScene" uid="uid://byhjeji762q28" path="res://ui/buttons/main_button/main_button.tscn" id="4_3pmpd"]
+[ext_resource type="PackedScene" uid="uid://6js5lqwn3164" path="res://ui/score_grid/dynamic/score_grid.tscn" id="4_w6pcn"]
+
+[node name="RunTestPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wsstg")
+script = ExtResource("1_blltw")
+
+[node name="Navbar" parent="." instance=ExtResource("2_toube")]
+layout_mode = 1
+
+[node name="Sidebar" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.409
+anchor_bottom = 1.0
+offset_top = 90.0
+offset_right = 0.719971
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.862745, 0.862745, 0.862745, 0.784314)
+
+[node name="MainMargin" type="MarginContainer" parent="Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="MainVBox" type="VBoxContainer" parent="Sidebar/MainMargin"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="TitleMargin" type="MarginContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Sidebar/MainMargin/MainVBox/TitleMargin"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "RUNNING TEST"
+
+[node name="HitScoreGrid" type="GridContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+theme_override_constants/h_separation = 450
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="GoodHitLabel" type="Label" parent="Sidebar/MainMargin/MainVBox/HitScoreGrid"]
+layout_mode = 2
+text = "GOOD HIT"
+vertical_alignment = 1
+
+[node name="GoodHitValueLabel" type="Label" parent="Sidebar/MainMargin/MainVBox/HitScoreGrid"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BadHitLabel" type="Label" parent="Sidebar/MainMargin/MainVBox/HitScoreGrid"]
+layout_mode = 2
+text = "BAD HIT"
+vertical_alignment = 1
+
+[node name="BadHitValueLabel" type="Label" parent="Sidebar/MainMargin/MainVBox/HitScoreGrid"]
+layout_mode = 2
+text = "0%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ScoreGrid" parent="Sidebar/MainMargin/MainVBox" instance=ExtResource("4_w6pcn")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonVBox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="StopTestButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("4_3pmpd")]
+layout_mode = 2
+text = "STOP TEST"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 3, 4)
+projection = 2
+fov = 50.0
+size = 2.0
+frustum_offset = Vector2(-0.8, 0)
+near = 2.0
+
+[connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StopTestButton" to="." method="_on_stop_test_button_pressed"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://cojq66ubhgv5o"]
+
+[ext_resource type="PackedScene" uid="uid://dknlgs0l1sqaa" path="res://entities/note/scenes/note.tscn" id="1_oom2m"]
+[ext_resource type="Shader" path="res://entities/maps/common/spatial_grid/spatial_grid.gdshader" id="1_p70bj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_23bwq"]
+render_priority = 0
+shader = ExtResource("1_p70bj")
+shader_parameter/color = Vector3(1, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_r2doj"]
+size = Vector2(2.05, 1.55)
+
+[node name="SpatialGrid" type="Node3D"]
+
+[node name="GridMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+material_override = SubResource("ShaderMaterial_23bwq")
+mesh = SubResource("QuadMesh_r2doj")
+
+[node name="Node" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.16)
+visible = false
+
+[node name="Note" parent="Node" instance=ExtResource("1_oom2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1, 0)
+
+[node name="Note2" parent="Node" instance=ExtResource("1_oom2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1, 0)
+
+[node name="Note3" parent="Node" instance=ExtResource("1_oom2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1, 0)
+
+[node name="Note4" parent="Node" instance=ExtResource("1_oom2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1, 0)
+
+[node name="Note5" parent="Node" instance=ExtResource("1_oom2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.5, 0)
+
+[node name="Note6" parent="Node" instance=ExtResource("1_oom2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.5, 0)
+
+[node name="Note7" parent="Node" instance=ExtResource("1_oom2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1.5, 0)
+
+[node name="Note8" parent="Node" instance=ExtResource("1_oom2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1.5, 0)
+
+[node name="Note9" parent="Node" instance=ExtResource("1_oom2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 2, 0)
+
+[node name="Note10" parent="Node" instance=ExtResource("1_oom2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 2, 0)
+
+[node name="Note11" parent="Node" instance=ExtResource("1_oom2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 2, 0)
+
+[node name="Note12" parent="Node" instance=ExtResource("1_oom2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 2, 0)

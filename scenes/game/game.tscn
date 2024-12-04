@@ -1,10 +1,485 @@
-[gd_scene load_steps=3 format=3 uid="uid://choxo4xrftp41"]
+[gd_scene load_steps=82 format=3 uid="uid://choxo4xrftp41"]
 
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_k2tfa"]
-[ext_resource type="PackedScene" uid="uid://b3wtmxh8rq4v6" path="res://scenes/player/player.tscn" id="2_l0gkx"]
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_p6tfs"]
+[ext_resource type="Script" path="res://entities/note/scripts/note_spawner.gd" id="2_hafj4"]
+[ext_resource type="PackedScene" uid="uid://b3wtmxh8rq4v6" path="res://entities/player/player.tscn" id="2_l0gkx"]
+[ext_resource type="Sky" uid="uid://c3ycglbuka5gq" path="res://scenes/game/sky.tres" id="2_rukcg"]
+[ext_resource type="PackedScene" uid="uid://d0b50g3sqry4v" path="res://entities/maps/water_map/realistic_water.tscn" id="2_xcxhj"]
+[ext_resource type="PackedScene" uid="uid://thge0ydknof1" path="res://entities/maps/water_map/platform.tscn" id="3_g4hpm"]
+[ext_resource type="Script" path="res://entities/note/scripts/note_group.gd" id="3_nuc7l"]
+[ext_resource type="PackedScene" uid="uid://dgy13ctdb8a3g" path="res://entities/maps/common/note_road/note_road.tscn" id="4_7n7ou"]
+[ext_resource type="Script" path="res://entities/note/scripts/note_data.gd" id="4_kp8mr"]
+[ext_resource type="AudioStream" uid="uid://segagvvmmwkn" path="res://scenes/game/NeuroBeats.mp3" id="6_lblwx"]
+
+[sub_resource type="Environment" id="Environment_5j4s0"]
+background_mode = 2
+sky = ExtResource("2_rukcg")
+ambient_light_source = 3
+tonemap_mode = 2
+glow_enabled = true
+fog_depth_begin = 90.0
+volumetric_fog_sky_affect = 0.0
+
+[sub_resource type="Resource" id="Resource_0fjs4"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 0
+hit_type = 0
+cut_direction = 1
+
+[sub_resource type="Resource" id="Resource_nuacx"]
+script = ExtResource("3_nuc7l")
+weight = 8
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_0fjs4")])
+
+[sub_resource type="Resource" id="Resource_87rkv"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 0
+hit_type = 1
+cut_direction = 1
+
+[sub_resource type="Resource" id="Resource_0m7em"]
+script = ExtResource("3_nuc7l")
+weight = 8
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_87rkv")])
+
+[sub_resource type="Resource" id="Resource_3j3tf"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 0
+hit_type = 0
+cut_direction = 1
+
+[sub_resource type="Resource" id="Resource_w7twe"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 0
+hit_type = 1
+cut_direction = 1
+
+[sub_resource type="Resource" id="Resource_b76ms"]
+script = ExtResource("3_nuc7l")
+weight = 6
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_3j3tf"), SubResource("Resource_w7twe")])
+
+[sub_resource type="Resource" id="Resource_ybpuc"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 0
+hit_type = 0
+cut_direction = 1
+
+[sub_resource type="Resource" id="Resource_g6wxk"]
+script = ExtResource("3_nuc7l")
+weight = 10
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_ybpuc")])
+
+[sub_resource type="Resource" id="Resource_eaghr"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 0
+hit_type = 1
+cut_direction = 1
+
+[sub_resource type="Resource" id="Resource_mk66v"]
+script = ExtResource("3_nuc7l")
+weight = 10
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_eaghr")])
+
+[sub_resource type="Resource" id="Resource_imycv"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 0
+hit_type = 0
+cut_direction = 1
+
+[sub_resource type="Resource" id="Resource_tvoih"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 0
+hit_type = 1
+cut_direction = 1
+
+[sub_resource type="Resource" id="Resource_mro33"]
+script = ExtResource("3_nuc7l")
+weight = 12
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_imycv"), SubResource("Resource_tvoih")])
+
+[sub_resource type="Resource" id="Resource_fh1ob"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 1
+hit_type = 0
+cut_direction = 2
+
+[sub_resource type="Resource" id="Resource_4jh6q"]
+script = ExtResource("3_nuc7l")
+weight = 10
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_fh1ob")])
+
+[sub_resource type="Resource" id="Resource_iy3w3"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 1
+hit_type = 1
+cut_direction = 3
+
+[sub_resource type="Resource" id="Resource_w25ht"]
+script = ExtResource("3_nuc7l")
+weight = 10
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_iy3w3")])
+
+[sub_resource type="Resource" id="Resource_ast11"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 1
+hit_type = 0
+cut_direction = 2
+
+[sub_resource type="Resource" id="Resource_yhfw8"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 1
+hit_type = 1
+cut_direction = 3
+
+[sub_resource type="Resource" id="Resource_aq5ou"]
+script = ExtResource("3_nuc7l")
+weight = 10
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_ast11"), SubResource("Resource_yhfw8")])
+
+[sub_resource type="Resource" id="Resource_oim3q"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 1
+hit_type = 0
+cut_direction = 2
+
+[sub_resource type="Resource" id="Resource_i46go"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 0
+hit_type = 1
+cut_direction = 2
+
+[sub_resource type="Resource" id="Resource_5gtww"]
+script = ExtResource("3_nuc7l")
+weight = 12
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_oim3q"), SubResource("Resource_i46go")])
+
+[sub_resource type="Resource" id="Resource_qtmj1"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 0
+hit_type = 0
+cut_direction = 3
+
+[sub_resource type="Resource" id="Resource_r1tbg"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 1
+hit_type = 1
+cut_direction = 3
+
+[sub_resource type="Resource" id="Resource_ahqbv"]
+script = ExtResource("3_nuc7l")
+weight = 12
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_qtmj1"), SubResource("Resource_r1tbg")])
+
+[sub_resource type="Resource" id="Resource_x72lx"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 2
+hit_type = 0
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_7oyhl"]
+script = ExtResource("3_nuc7l")
+weight = 8
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_x72lx")])
+
+[sub_resource type="Resource" id="Resource_utlks"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 2
+hit_type = 1
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_kxepe"]
+script = ExtResource("3_nuc7l")
+weight = 8
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_utlks")])
+
+[sub_resource type="Resource" id="Resource_rsrg4"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 2
+hit_type = 0
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_yj8hb"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 2
+hit_type = 1
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_brecm"]
+script = ExtResource("3_nuc7l")
+weight = 10
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_rsrg4"), SubResource("Resource_yj8hb")])
+
+[sub_resource type="Resource" id="Resource_y8e57"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 2
+hit_type = 0
+cut_direction = 4
+
+[sub_resource type="Resource" id="Resource_8pbq5"]
+script = ExtResource("3_nuc7l")
+weight = 6
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_y8e57")])
+
+[sub_resource type="Resource" id="Resource_ahgsi"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 2
+hit_type = 1
+cut_direction = 5
+
+[sub_resource type="Resource" id="Resource_tb3bv"]
+script = ExtResource("3_nuc7l")
+weight = 6
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_ahgsi")])
+
+[sub_resource type="Resource" id="Resource_yamtb"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 1
+hit_type = 0
+cut_direction = 8
+
+[sub_resource type="Resource" id="Resource_vnpqi"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 1
+hit_type = 1
+cut_direction = 8
+
+[sub_resource type="Resource" id="Resource_vmp40"]
+script = ExtResource("3_nuc7l")
+weight = 8
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_yamtb"), SubResource("Resource_vnpqi")])
+
+[sub_resource type="Resource" id="Resource_c2iko"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 1
+hit_type = 0
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_v4oi2"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 1
+hit_type = 1
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_7165v"]
+script = ExtResource("3_nuc7l")
+weight = 6
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_c2iko"), SubResource("Resource_v4oi2")])
+
+[sub_resource type="Resource" id="Resource_kuc30"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 2
+hit_type = 0
+cut_direction = 8
+
+[sub_resource type="Resource" id="Resource_vc3ev"]
+script = ExtResource("3_nuc7l")
+weight = 8
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_kuc30")])
+
+[sub_resource type="Resource" id="Resource_68qks"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 2
+hit_type = 1
+cut_direction = 8
+
+[sub_resource type="Resource" id="Resource_xmcye"]
+script = ExtResource("3_nuc7l")
+weight = 8
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_68qks")])
+
+[sub_resource type="Resource" id="Resource_4ghbk"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 0
+hit_type = 0
+cut_direction = 6
+
+[sub_resource type="Resource" id="Resource_748hh"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 2
+hit_type = 1
+cut_direction = 5
+
+[sub_resource type="Resource" id="Resource_lyx7d"]
+script = ExtResource("3_nuc7l")
+weight = 5
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_4ghbk"), SubResource("Resource_748hh")])
+
+[sub_resource type="Resource" id="Resource_df5h0"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 2
+hit_type = 0
+cut_direction = 4
+
+[sub_resource type="Resource" id="Resource_kmfd6"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 0
+hit_type = 1
+cut_direction = 7
+
+[sub_resource type="Resource" id="Resource_kd3tu"]
+script = ExtResource("3_nuc7l")
+weight = 5
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_df5h0"), SubResource("Resource_kmfd6")])
+
+[sub_resource type="Resource" id="Resource_6u21l"]
+script = ExtResource("4_kp8mr")
+line_index = 0
+line_layer = 2
+hit_type = 0
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_58qah"]
+script = ExtResource("3_nuc7l")
+weight = 7
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_6u21l")])
+
+[sub_resource type="Resource" id="Resource_m4t4y"]
+script = ExtResource("4_kp8mr")
+line_index = 3
+line_layer = 2
+hit_type = 1
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_da048"]
+script = ExtResource("3_nuc7l")
+weight = 7
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_m4t4y")])
+
+[sub_resource type="Resource" id="Resource_wwqti"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 1
+hit_type = 0
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_mmxob"]
+script = ExtResource("3_nuc7l")
+weight = 7
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_wwqti")])
+
+[sub_resource type="Resource" id="Resource_ueaky"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 1
+hit_type = 1
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_jfkte"]
+script = ExtResource("3_nuc7l")
+weight = 7
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_ueaky")])
+
+[sub_resource type="Resource" id="Resource_3h40q"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 2
+hit_type = 0
+cut_direction = 8
+
+[sub_resource type="Resource" id="Resource_607ql"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 2
+hit_type = 1
+cut_direction = 8
+
+[sub_resource type="Resource" id="Resource_a7ray"]
+script = ExtResource("3_nuc7l")
+weight = 1
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_3h40q"), SubResource("Resource_607ql")])
+
+[sub_resource type="Resource" id="Resource_p75oy"]
+script = ExtResource("4_kp8mr")
+line_index = 1
+line_layer = 2
+hit_type = 0
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_adr3q"]
+script = ExtResource("3_nuc7l")
+weight = 1
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_p75oy")])
+
+[sub_resource type="Resource" id="Resource_7ncnq"]
+script = ExtResource("4_kp8mr")
+line_index = 2
+line_layer = 2
+hit_type = 1
+cut_direction = 0
+
+[sub_resource type="Resource" id="Resource_2a1la"]
+script = ExtResource("3_nuc7l")
+weight = 1
+notes = Array[ExtResource("4_kp8mr")]([SubResource("Resource_7ncnq")])
 
 [node name="Game" type="Node3D"]
+script = ExtResource("1_p6tfs")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5j4s0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+shadow_enabled = true
+
+[node name="RealisticWater" parent="WorldEnvironment" instance=ExtResource("2_xcxhj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Platform" parent="WorldEnvironment" instance=ExtResource("3_g4hpm")]
+transform = Transform3D(1.04, 0, 0, 0, 1.5, 0, 0, 0, 1.04, 0, 0.0285334, 0)
+
+[node name="NoteRoad" parent="WorldEnvironment" instance=ExtResource("4_7n7ou")]
 
 [node name="StartXR" parent="." instance=ExtResource("1_k2tfa")]
+enable_passthrough = true
+
+[node name="NoteSpawner" type="Node" parent="."]
+script = ExtResource("2_hafj4")
+note_groups = Array[ExtResource("3_nuc7l")]([SubResource("Resource_nuacx"), SubResource("Resource_0m7em"), SubResource("Resource_b76ms"), SubResource("Resource_g6wxk"), SubResource("Resource_mk66v"), SubResource("Resource_mro33"), SubResource("Resource_4jh6q"), SubResource("Resource_w25ht"), SubResource("Resource_aq5ou"), SubResource("Resource_5gtww"), SubResource("Resource_ahqbv"), SubResource("Resource_7oyhl"), SubResource("Resource_kxepe"), SubResource("Resource_brecm"), SubResource("Resource_8pbq5"), SubResource("Resource_tb3bv"), SubResource("Resource_vmp40"), SubResource("Resource_7165v"), SubResource("Resource_vc3ev"), SubResource("Resource_xmcye"), SubResource("Resource_lyx7d"), SubResource("Resource_kd3tu"), SubResource("Resource_58qah"), SubResource("Resource_da048"), SubResource("Resource_mmxob"), SubResource("Resource_jfkte"), SubResource("Resource_a7ray"), SubResource("Resource_adr3q"), SubResource("Resource_2a1la")])
+
+[node name="GameTimer" type="Timer" parent="."]
+process_callback = 0
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lblwx")
+parameters/looping = true
 
 [node name="Player" parent="." instance=ExtResource("2_l0gkx")]
+
+[connection signal="xr_ended" from="StartXR" to="Player" method="_on_start_xr_xr_ended"]
+[connection signal="xr_started" from="StartXR" to="Player" method="_on_start_xr_xr_started"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

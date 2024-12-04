@@ -1,0 +1,32 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://qry4wtxhiyw5"]
+
+[ext_resource type="Shader" path="res://entities/maps/water_map/new_realistic_water.gdshader" id="1_l58q7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bl8ol"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jg3w0"]
+seamless = true
+seamless_blend_skirt = 1.0
+as_normal_map = true
+bump_strength = 1.9
+normalize = false
+noise = SubResource("FastNoiseLite_bl8ol")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_l58q7")
+shader_parameter/albedo = Color(0.0201592, 0.286111, 0.448882, 0.505882)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/refraction = 0.05
+shader_parameter/refraction_texture_channel = null
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.1, 0.04, 0.1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_jg3w0")

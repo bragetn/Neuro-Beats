@@ -1,0 +1,164 @@
+[gd_scene load_steps=6 format=3 uid="uid://clnn1raxmu4wx"]
+
+[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="1_e5co8"]
+[ext_resource type="Script" path="res://scenes/admin/user_statistics_panel/user_statistics_panel.gd" id="1_kcyrv"]
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="2_va8fm"]
+[ext_resource type="PackedScene" uid="uid://dpdnsegsgy2q4" path="res://ui/buttons/secondary_button/secondary_button.tscn" id="4_jrus1"]
+[ext_resource type="PackedScene" uid="uid://byhjeji762q28" path="res://ui/buttons/main_button/main_button.tscn" id="5_fd5g8"]
+
+[node name="UserStatisticsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kcyrv")
+
+[node name="NavBar" parent="." instance=ExtResource("1_e5co8")]
+z_index = 1
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_bottom = 0.0
+grow_vertical = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.862745, 0.862745, 0.862745, 0.784314)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.083
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.359993
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_va8fm")
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "STATISTICS"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="AccuracyHeader" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Total accuracy"
+
+[node name="Accuracy" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TotalNotesHeader" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Total notes"
+
+[node name="TotalHits" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GoodHitsHeader" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Good hits"
+
+[node name="GoodHits" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BadHitsHeader" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Bad hits"
+
+[node name="BadHits" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonVbox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 40
+
+[node name="NewTestButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ButtonVbox" instance=ExtResource("5_fd5g8")]
+layout_mode = 2
+size_flags_vertical = 10
+text = "NEW TEST"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ButtonVbox"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 57
+
+[node name="MainMenuBurron" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ButtonVbox/MarginContainer" instance=ExtResource("5_fd5g8")]
+layout_mode = 2
+size_flags_vertical = 10
+text = "MAIN MENU"
+
+[node name="StatisticsContainerMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_right = 100
+
+[node name="StatisticsContainerVBox" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+selected = 0
+item_count = 2
+popup/item_0/text = "Score grid"
+popup/item_1/text = "Accuracy over time"
+popup/item_1/id = 1
+
+[node name="StatisticsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SaveFileButton" parent="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox" instance=ExtResource("4_jrus1")]
+layout_mode = 2
+text = "SAVE FILE"
+
+[node name="FeedbackText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox"]
+layout_mode = 2
+
+[node name="FileDialog" type="FileDialog" parent="."]
+initial_position = 4
+size = Vector2i(1000, 700)
+theme = ExtResource("2_va8fm")
+access = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ButtonVbox/NewTestButton" to="." method="_on_new_test_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/ButtonVbox/MarginContainer/MainMenuBurron" to="." method="_on_main_menu_burron_pressed"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="resized" from="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/StatisticsContainer" to="." method="_on_statistics_container_resized"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/StatisticsContainerMargin/StatisticsContainerVBox/SaveFileButton" to="." method="_on_save_file_button_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

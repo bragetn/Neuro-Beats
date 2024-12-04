@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://neqnd4em2nnx"]
+
+[ext_resource type="Script" path="res://entities/saber/saber.gd" id="1_68kcp"]
+[ext_resource type="PackedScene" uid="uid://bceh3h7u2h314" path="res://entities/saber/models/saber.glb" id="2_wxp06"]
+[ext_resource type="Shader" path="res://entities/saber/saber.gdshader" id="3_6bd73"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0mr3"]
+albedo_color = Color(0.705194, 0.705194, 0.705194, 1)
+metallic = 0.69
+roughness = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8wnlu"]
+render_priority = 0
+shader = ExtResource("3_6bd73")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_roq1c"]
+albedo_color = Color(0.188371, 0.188371, 0.188371, 1)
+metallic = 0.55
+roughness = 0.63
+
+[node name="Saber" instance=ExtResource("2_wxp06")]
+script = ExtResource("1_68kcp")
+hit_type = 1
+
+[node name="Saber" parent="." index="0"]
+transform = Transform3D(0.208336, 0, 0, 0, -9.10666e-09, -0.208336, 0, 0.208336, -9.10666e-09, 0, 0, 0)
+instance_shader_parameters/color = Color(0, 0, 1, 1)
+surface_material_override/0 = SubResource("StandardMaterial3D_v0mr3")
+surface_material_override/1 = SubResource("ShaderMaterial_8wnlu")
+surface_material_override/2 = SubResource("StandardMaterial3D_roq1c")
+
+[node name="StartPoint" type="Node3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.735775)
+
+[node name="EndPoint" type="Node3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.2784)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://dknlgs0l1sqaa"]
+
+[ext_resource type="Script" path="res://entities/note/scripts/note.gd" id="1_dsj03"]
+[ext_resource type="Shader" path="res://entities/note/assets/note.gdshader" id="2_pg2ww"]
+[ext_resource type="ArrayMesh" uid="uid://x8qipyt35qcy" path="res://entities/note/assets/note.obj" id="3_32sk2"]
+[ext_resource type="Texture2D" uid="uid://cx2gnol42lt7c" path="res://entities/note/assets/noise.png" id="3_lnqo3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k7268"]
+render_priority = 0
+shader = ExtResource("2_pg2ww")
+shader_parameter/noise_texture = ExtResource("3_lnqo3")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g274q"]
+size = Vector3(0.8, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gaba0"]
+size = Vector3(0.4, 0.4, 0.4)
+
+[node name="Note" type="Node3D"]
+script = ExtResource("1_dsj03")
+
+[node name="NoteMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_k7268")
+mesh = ExtResource("3_32sk2")
+
+[node name="HitAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+volume_db = -15.0
+
+[node name="GoodHitBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GoodHitBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+shape = SubResource("BoxShape3D_g274q")
+
+[node name="BadHitBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BadHitBody"]
+shape = SubResource("BoxShape3D_gaba0")

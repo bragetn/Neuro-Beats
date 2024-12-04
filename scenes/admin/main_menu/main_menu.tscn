@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=3 uid="uid://365l3vokhaf7"]
+
+[ext_resource type="Script" path="res://scenes/admin/main_menu/main_menu.gd" id="1_7jl8y"]
+[ext_resource type="PackedScene" uid="uid://dx8ofg86dnu77" path="res://ui/layouts/navbar.tscn" id="1_tkt3i"]
+[ext_resource type="Theme" uid="uid://p5aqqo5i5sic" path="res://ui/resources/admin_theme.tres" id="1_x65kb"]
+[ext_resource type="PackedScene" uid="uid://dpdnsegsgy2q4" path="res://ui/buttons/secondary_button/secondary_button.tscn" id="4_pb115"]
+[ext_resource type="PackedScene" uid="uid://byhjeji762q28" path="res://ui/buttons/main_button/main_button.tscn" id="8_eqqbe"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_x65kb")
+script = ExtResource("1_7jl8y")
+
+[node name="Navbar" parent="." instance=ExtResource("1_tkt3i")]
+layout_mode = 1
+
+[node name="Sidebar" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.591
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.720093
+offset_top = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.862745, 0.862745, 0.862745, 0.784314)
+
+[node name="MainMargin" type="MarginContainer" parent="Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="MainVBox" type="VBoxContainer" parent="Sidebar/MainMargin"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="TitleMargin" type="MarginContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Sidebar/MainMargin/MainVBox/TitleMargin"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "MAIN MENU
+"
+
+[node name="ButtonVBox" type="VBoxContainer" parent="Sidebar/MainMargin/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="StartButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("8_eqqbe")]
+layout_mode = 2
+text = "START
+"
+
+[node name="StatsButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("8_eqqbe")]
+layout_mode = 2
+text = "STATISTICS
+"
+
+[node name="CreditsButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("8_eqqbe")]
+layout_mode = 2
+text = "CREDITS"
+
+[node name="MarginContainer" type="MarginContainer" parent="Sidebar/MainMargin/MainVBox/ButtonVBox"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="ExitButton" parent="Sidebar/MainMargin/MainVBox/ButtonVBox" instance=ExtResource("4_pb115")]
+layout_mode = 2
+text = "EXIT"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 2.52585, 3, 5)
+fov = 50.0
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 4
+size = Vector2i(1000, 700)
+theme = ExtResource("1_x65kb")
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/StatsButton" to="." method="_on_stats_button_pressed"]
+[connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Sidebar/MainMargin/MainVBox/ButtonVBox/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

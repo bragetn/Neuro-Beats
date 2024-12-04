@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgy13ctdb8a3g"]
+
+[ext_resource type="Script" path="res://entities/maps/common/note_road/note_road.gd" id="1_mqbum"]
+[ext_resource type="Shader" path="res://entities/maps/common/note_road/note_road.gdshader" id="1_p2cmy"]
+[ext_resource type="PackedScene" uid="uid://cojq66ubhgv5o" path="res://entities/maps/common/spatial_grid/spatial_grid.tscn" id="2_3tjur"]
+[ext_resource type="PackedScene" uid="uid://bbek2fj1x6w6n" path="res://entities/maps/common/param_visualizer/param_visualizer.tscn" id="3_0nm5l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lhxwp"]
+render_priority = 0
+shader = ExtResource("1_p2cmy")
+shader_parameter/base_color = Vector3(0.01, 0.01, 0.01)
+shader_parameter/road_width = 1.9
+shader_parameter/line_width = 0.02
+
+[sub_resource type="BoxMesh" id="BoxMesh_3cf67"]
+size = Vector3(2.02, 0.2, 100)
+
+[node name="NoteRoad" type="Node3D"]
+script = ExtResource("1_mqbum")
+
+[node name="RoadMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -50)
+material_override = SubResource("ShaderMaterial_lhxwp")
+mesh = SubResource("BoxMesh_3cf67")
+
+[node name="SpatialGrid" parent="." instance=ExtResource("2_3tjur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+visible = false
+
+[node name="ParamVisualizer" parent="." instance=ExtResource("3_0nm5l")]
+visible = false
